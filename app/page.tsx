@@ -75,10 +75,12 @@ export default function TriozyLandingPagePro() {
             <a href="#faq" className="hover:text-[#0e3084] transition">FAQ</a>
           </div>
           <a 
-            href={playStoreLink}
+            href="https://app.triozy.com/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-2 bg-[#0e3084] text-white px-6 py-2.5 rounded-full font-semibold hover:bg-blue-900 transition-all hover:shadow-lg hover:-translate-y-0.5"
           >
-            Download Free
+            Try on Web
           </a>
         </div>
       </nav>
@@ -106,13 +108,15 @@ export default function TriozyLandingPagePro() {
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
               <a 
                 href={playStoreLink} 
-                className="flex items-center justify-center gap-3 bg-[#0e3084] text-white px-8 py-4 rounded-2xl text-lg font-bold hover:scale-[1.02] transition-transform shadow-xl shadow-[#0e3084]/20"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block"
               >
-                <Download size={24} />
-                <div className="text-left">
-                  <p className="text-[10px] uppercase tracking-wider leading-none text-blue-200">Get it on</p>
-                  <p className="leading-tight">Google Play</p>
-                </div>
+                <img 
+                  src="/playstore_icon.png" 
+                  alt="Get it on Google Play" 
+                  className="h-26 w-auto hover:scale-[1.02] transition-transform"
+                />
               </a>
             </div>
 
@@ -122,7 +126,7 @@ export default function TriozyLandingPagePro() {
                 <img src={galleryImages[1]} alt="User" className="w-10 h-10 rounded-full border-2 border-white object-cover" />
                 <img src={galleryImages[2]} alt="User" className="w-10 h-10 rounded-full border-2 border-white object-cover" />
               </div>
-              <p>Join <strong>10,000+</strong> locals using Triozy</p>
+              <p>Join your local community on Triozy</p>
             </div>
           </div>
 
@@ -152,7 +156,7 @@ export default function TriozyLandingPagePro() {
           transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
           className="flex gap-12 items-center text-[#0e3084]/40 font-bold text-xl uppercase tracking-widest"
         >
-          <span>Plumbing</span> • <span>Electricians</span> • <span>Home Cleaning</span> • <span>Tutoring</span> • <span>Event Planning</span> • <span>Carpentry</span> • <span>Landscaping</span> • <span>Photography</span> • <span>Plumbing</span> • <span>Electricians</span> • <span>Home Cleaning</span>
+          <span>Plumbing</span> • <span>Electricians</span> • <span>Home Cleaning</span> • <span>Tutoring</span> • <span>Event Planning</span> • <span>Carpentry</span> • <span>Photography</span> • <span>Plumbing</span> • <span>Electricians</span> • <span>Home Cleaning</span>
         </motion.div>
       </div>
 
@@ -424,7 +428,7 @@ export default function TriozyLandingPagePro() {
                 <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-500 transition-colors">
                   <FaInstagram size={20} />
                 </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-500 transition-colors">
+                <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/triozy/" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-500 transition-colors">
                   <FaLinkedin size={20} />
                 </a>
               </div>
