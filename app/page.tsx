@@ -191,7 +191,7 @@ export default function TriozyLandingPagePro() {
               <Users size={32} />
             </div>
             <h3 className="text-2xl font-bold mb-3 text-slate-900">Mates</h3>
-            <p className="text-slate-600 mb-8 flex-grow leading-relaxed">It's not just about work. Connect with neighbors, find workout partners, or organize local community events.</p>
+            <p className="text-slate-600 mb-8 flex-grow leading-relaxed">It's not just about work. Find the right flatmates, share rides, and connect with trusted help around you.</p>
             <span className="text-[#166534] font-bold flex items-center gap-2 group-hover:gap-3 transition-all">Connect Now <ArrowRight size={18}/></span>
           </div>
         </div>
@@ -249,7 +249,7 @@ export default function TriozyLandingPagePro() {
             <div className="absolute top-20 left-0 w-[260px] aspect-[9/19] rounded-[2rem] border-[4px] border-slate-900 shadow-2xl z-20 -rotate-3 overflow-hidden bg-slate-900">
                <img src={galleryImages[2]} className="w-full h-full object-contain" alt="App UI" />
             </div>
-            <div className="absolute bottom-0 right-10 w-[260px] aspect-[9/19] rounded-[2rem] border-[4px] border-slate-900 shadow-2xl z-30 rotate-2 overflow-hidden bg-slate-900">
+            <div className="absolute bottom-[-60px] right-30 w-[260px] aspect-[9/19] rounded-[2rem] border-[4px] border-slate-900 shadow-2xl z-30 rotate-2 overflow-hidden bg-slate-900">
                <img src={galleryImages[3]} className="w-full h-full object-contain" alt="App UI" />
             </div>
           </div>
@@ -289,14 +289,14 @@ export default function TriozyLandingPagePro() {
             <div className="flex items-center justify-center gap-1 text-yellow-500 mb-2">
               <Star fill="currentColor" /><Star fill="currentColor" /><Star fill="currentColor" /><Star fill="currentColor" /><Star fill="currentColor" />
             </div>
-            <p className="font-semibold text-slate-600">4.9/5 Rating on the Play Store</p>
+            <p className="font-semibold text-slate-600">4.6/5 Rating on the Play Store</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { name: "Rahul S.", role: "Homeowner", text: "Finally replaced my messy contacts list. Found a brilliant plumber in 10 minutes. The interface is just so clean and easy." },
-              { name: "Amit K.", role: "Local Electrician", text: "As a provider, Triozy has been a game changer. I get steady requests and can manage all my chats right in the app without giving out my personal number." },
-              { name: "Anjali D.", role: "Community Member", text: "I used the 'Mates' feature to find a running partner in my neighborhood. We've been running together for a month now. Amazing concept!" }
+              { name: "Rahul Saw", role: "Homeowner", text: "Finally replaced my messy contacts list. Found a brilliant plumber in 10 minutes. The interface is just so clean and easy." },
+              { name: "Amit Kumar", role: "Local Electrician", text: "As a provider, Triozy has been a game changer. I get steady requests and can manage all my chats right in the app." },
+              { name: "Anjali Deshpande", role: "Community Member", text: "I used the 'Mates' feature to find a ride partner for my daily commute. It's been super convenient and cost-effective. Great idea!" }
             ].map((review, i) => (
               <div key={i} className="bg-[#f4f7fb] p-8 rounded-3xl shadow-sm border border-blue-900/5">
                 <div className="flex text-yellow-400 mb-4">
