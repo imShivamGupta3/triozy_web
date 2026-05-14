@@ -3,9 +3,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
-  Wrench, FileText, Users, Download, Star, 
-  ChevronDown, PhoneCall, CheckCircle, ArrowRight,
-  Mail
+  Home, Users, ShoppingBag, Star, 
+  ChevronDown, MessageSquareText, CheckCircle, ArrowRight,
+  Mail, ShieldCheck, Utensils, Search, CheckCircle2, HeartHandshake, Zap, Sparkles
 } from "lucide-react";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
 
@@ -13,72 +13,75 @@ export default function TriozyLandingPagePro() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const playStoreLink = "https://play.google.com/store/apps/details?id=com.triozy.triozy_app";
-  const logoUrl = "https://play-lh.googleusercontent.com/27IjKbcf4HjCuMgfIEPuybWBwyDJWWBIqMkfJJ6BPBXPdherj5nT5Hdr6frwQ7CP7VJ-u17DmgGESyFZ21XD8Q=w480-h960-rw";
-  const heroImage = "https://play-lh.googleusercontent.com/nxiSNlkoRsIDG4RQhQQhtQr5FwOTAcj51JrLiybkilP0V9X_QTICkM3YlIXeM0k70N5h_cLRUaLWvPmHrcn4Cg=w5120-h2880-rw";
+  
+  // Local Image Paths 
+  const logoUrl = "/triozy_logo.png";
+  const heroImage = "/Main_SS.png";
+  const bannerImage = "/Banner.png";
   const galleryImages = [
-    "https://play-lh.googleusercontent.com/n7gGfTNJMqb6khyBc_mlJzQ6AvqtvmQFIDtg7f8xyk4wFS2S8LGQ_nxIQy3243fIv0L6Lp4-Az3Qu1AeWawntVQ=w5120-h2880-rw",
-    "https://play-lh.googleusercontent.com/xSz0rqbAEwHqkADFY7Ej5aHZsUennagxKomeON3Y6Xju9u9uOHBMfBcGYfxgJcP-s7HpXpTz2xToKwPQCXEX=w5120-h2880-rw",
-    "https://play-lh.googleusercontent.com/HI-a8rkPwS4Xc4gg1Hu_mpzLKWdJoR0d6A85J3-SduRS0FRRzDZl9quDluP4XeUpElP5mke9kTHCRKfI6euDHA=w5120-h2880-rw",
-    "https://play-lh.googleusercontent.com/SEd0JoEbBdTjELlavbXiPVuy33B9zjWx9ceUAc9FXOiseVu0MhzGSumRjSuSgXMY8jP2kyAibdBpdBGS1wVEuKk=w5120-h2880-rw",
-    "https://play-lh.googleusercontent.com/M8xN6Z3FxbsuvvjuREXWZ0-1Dn484V7vsEcHAg6qkFOxSVzMPHOtjinC9xhNwVKwTeLFndKaslHaN63zxQw=w5120-h2880-rw",
-    "https://play-lh.googleusercontent.com/nOQ2Oz6kbrPoCwTD-0N33HL2k0fyS-guLfQSx83ZQgjbYuTeEAGSZTiIrwDz3epQ8mUUdA1pZcFvbfZ-XUzs=w5120-h2880-rw",
+    "/SS_2.png",
+    "/SS_3.png",
+    "/SS_4.png",
+    "/SS_5.png",
+    "/SS_6.png",
+    "/SS_7.png",
   ];
 
   const faqs = [
     {
-      question: "Is Triozy completely free to use?",
-      answer: "Yes! Downloading the app and browsing services is 100% free. You only pay for the services you explicitly book through our verified providers."
+      question: "What exactly can I find on Triozy?",
+      answer: "Triozy is your all-in-one moving companion. You can find verified PGs, rooms, flats, compatible flatmates, and a marketplace for daily essentials like furniture, appliances, maids, and tiffin services."
     },
     {
-      question: "How are the local service providers vetted?",
-      answer: "We prioritize your safety. All service providers go through a review process, and you can always check their community ratings, reviews, and completed jobs before booking."
+      question: "How do you ensure the listings are genuine?",
+      answer: "Safety is our priority. Sellers and owners on Triozy are verified, and you can view their profiles and community history before making any commitments."
     },
     {
-      question: "Can I offer my own services on Triozy?",
-      answer: "Absolutely. You can easily switch to a provider profile, list your skills, and start receiving job requests from people in your local neighborhood."
+      question: "Can I sell my old furniture when I move out?",
+      answer: "Absolutely. Our marketplace feature lets you list your move-out essentials so incoming renters in your neighborhood can buy them easily."
     },
     {
-      question: "What happens if a job isn't completed properly?",
-      answer: "Our support team is here to help. We have a dispute resolution process to ensure fair outcomes for both users and service providers."
+      question: "How does the flatmate matching work?",
+      answer: "We help you find your vibe. You can browse detailed profiles of people looking for flatmates, matching based on lifestyle, habits, and housing preferences."
     },
     {
-      question: "Can I chat or call providers before booking?",
-      answer: "Yes, you have full control. You can use our secure in-app chat or call feature to discuss details, negotiate pricing, and confirm requirements before making any commitments."
+      question: "Do I have to share my personal phone number?",
+      answer: "No. You have full privacy. Use our secure in-app chat to talk directly with verified owners, sellers, or future roommates without sharing your number."
     },
     {
-      question: "Are there any hidden booking fees?",
-      answer: "No hidden fees. The price you agree upon with the service provider is the price you pay. Transparency is a core value of the Triozy community."
+      question: "Is there a fee to use the Triozy app?",
+      answer: "Downloading Triozy and browsing listings is completely free. We designed it to reduce the friction and hidden costs usually associated with moving."
     },
     {
-      question: "How do I get paid if I work as a provider?",
-      answer: "Payments are handled securely. Once a job is marked as completed and confirmed by the user, the funds are processed and sent directly to your linked account."
+      question: "Can I find daily services like Maids and Tiffins?",
+      answer: "Yes! Settling in isn't just about the room. You can discover and book trusted local services like tiffins, home cleaning, and maids directly within the app."
     },
     {
-      question: "Is my personal information kept private?",
-      answer: "Your privacy is our top priority. We use industry-standard encryption, and your exact location and contact details are only shared when you explicitly confirm a booking."
+      question: "Is Triozy available in my city?",
+      answer: "We are rapidly expanding across major urban hubs to help students and professionals relocate effortlessly. Download the app to see the active listings in your area."
     }
   ];
 
   return (
-    <div className="min-h-screen bg-[#f4f7fb] text-slate-900 font-sans selection:bg-blue-200 selection:text-blue-900">
+    <div className="min-h-screen bg-[#f8fafc] text-slate-900 font-sans selection:bg-[#E5E0FF] selection:text-[#635BFF]">
       
-      {/* 1. STICKY NAVBAR */}
-      <nav className="fixed w-full top-0 z-50 bg-[#f4f7fb]/90 backdrop-blur-xl border-b border-blue-900/10 transition-all duration-300">
+      {/* 1. STICKY NAVBAR  */}
+      <nav className="fixed w-full top-0 z-50 bg-[#EAE8FF]/80 backdrop-blur-2xl border-b border-[#635BFF]/15 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-3 cursor-pointer">
-            <img src={logoUrl} alt="Triozy Logo" className="w-10 h-10 rounded-xl shadow-sm" />
-            <span className="text-2xl font-extrabold tracking-tight text-[#0e3084]">Triozy</span>
+          <div className="flex items-center gap-3 cursor-pointer group">
+            <img src={logoUrl} alt="Triozy Logo" className="w-10 h-10 rounded-xl shadow-sm object-cover group-hover:shadow-md transition-shadow" />
+            <span className="text-2xl font-extrabold tracking-tight text-[#635BFF]">Triozy</span>
           </div>
-          <div className="hidden md:flex gap-8 text-sm font-semibold text-slate-600">
-            <a href="#features" className="hover:text-[#0e3084] transition">Features</a>
-            <a href="#how-it-works" className="hover:text-[#0e3084] transition">How it Works</a>
-            <a href="#faq" className="hover:text-[#0e3084] transition">FAQ</a>
+          <div className="hidden md:flex gap-8 text-sm font-semibold text-slate-700">
+            <a href="#features" className="hover:text-[#635BFF] transition-colors">Features</a>
+            <a href="#how-it-works" className="hover:text-[#635BFF] transition-colors">How it Works</a>
+            <a href="#faq" className="hover:text-[#635BFF] transition-colors">FAQ</a>
           </div>
           <a 
             href="https://app.triozy.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-[#0e3084] text-white px-6 py-2.5 rounded-full font-semibold hover:bg-blue-900 transition-all hover:shadow-lg hover:-translate-y-0.5"
+            className="flex items-center gap-2 bg-[#635BFF] text-white px-6 py-2.5 rounded-full font-semibold hover:bg-[#524be0] transition-all hover:shadow-[0_8px_20px_rgba(99,91,255,0.3)] hover:-translate-y-0.5"
           >
             Try on Web
           </a>
@@ -86,23 +89,27 @@ export default function TriozyLandingPagePro() {
       </nav>
 
       {/* 2. DYNAMIC HERO SECTION */}
-      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-gradient-to-b from-[#f4f7fb] to-blue-50">
-        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-blue-400/20 blur-[100px] -z-10 rounded-full" />
+      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-24 overflow-hidden bg-gradient-to-b from-[#f8fafc] to-[#F0EEFF]">
+        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[#635BFF]/15 blur-[100px] -z-10 rounded-full" />
         
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-16 items-center relative z-10">
           <div className="lg:col-span-7">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100/80 text-[#0e3084] font-bold text-sm mb-6 border border-blue-200">
-              <Star size={14} fill="currentColor" />
-              <span>#1 Local Discovery App</span>
-            </div>
+            <motion.div 
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-[#635BFF] font-bold text-sm mb-6 shadow-sm border border-[#635BFF]/20"
+            >
+              <ShieldCheck size={16} />
+              <span>Verified Listings & Sellers</span>
+            </motion.div>
             <h1 className="text-5xl lg:text-7xl font-extrabold tracking-tight mb-8 leading-[1.1] text-slate-900">
-              Your neighborhood, <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0e3084] to-blue-600">
-                in your pocket.
+              Move smarter. <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#635BFF] to-[#8A78FF]">
+                Settle faster.
               </span>
             </h1>
             <p className="text-xl text-slate-600 mb-10 leading-relaxed max-w-xl">
-              Stop endlessly searching. Triozy instantly connects you with trusted local professionals, community requests, and neighbors—all in one place.
+              Housing search, flatmate matching, and a marketplace for your daily essentials - all in one seamless experience built for modern city living.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
@@ -115,33 +122,33 @@ export default function TriozyLandingPagePro() {
                 <img 
                   src="/playstore_icon.png" 
                   alt="Get it on Google Play" 
-                  className="h-26 w-auto hover:scale-[1.02] transition-transform"
+                  className="h-20 sm:h-24 w-auto hover:scale-[1.02] transition-transform drop-shadow-md"
                 />
               </a>
             </div>
 
             <div className="flex items-center gap-4 text-sm text-slate-600 font-medium">
               <div className="flex -space-x-3">
-                <img src={galleryImages[0]} alt="User" className="w-10 h-10 rounded-full border-2 border-white object-cover" />
-                <img src={galleryImages[1]} alt="User" className="w-10 h-10 rounded-full border-2 border-white object-cover" />
-                <img src={galleryImages[2]} alt="User" className="w-10 h-10 rounded-full border-2 border-white object-cover" />
+                <img src={galleryImages[0]} alt="User" className="w-10 h-10 rounded-full border-2 border-white object-cover bg-slate-200" />
+                <img src={galleryImages[1]} alt="User" className="w-10 h-10 rounded-full border-2 border-white object-cover bg-slate-300" />
+                <img src={galleryImages[2]} alt="User" className="w-10 h-10 rounded-full border-2 border-white object-cover bg-slate-400" />
               </div>
-              <p>Join your local community on Triozy</p>
+              <p>Join thousands streamlining their next move</p>
             </div>
           </div>
 
-          <div className="lg:col-span-5 relative mx-auto w-full max-w-[340px] lg:max-w-none perspective-1000">
-            {/* Widened aspect ratio & object-contain to prevent cropping */}
+          <div className="lg:col-span-5 relative mx-auto w-full max-w-[320px] lg:max-w-none perspective-1000">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-[#635BFF]/20 blur-3xl rounded-full animate-pulse"></div>
             <motion.div 
               initial={{ opacity: 0, rotateY: 15, x: 50 }}
               animate={{ opacity: 1, rotateY: 0, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="relative rounded-[2.5rem] border-[4px] border-slate-900 bg-slate-900 shadow-2xl overflow-hidden aspect-[9/19] lg:w-[320px] lg:ml-auto"
+              className="lg:w-[320px] lg:ml-auto relative z-10"
             >
               <img 
                 src={heroImage} 
                 alt="Triozy App Home Screen" 
-                className="w-full h-full object-contain bg-slate-900"
+                className="w-full h-auto rounded-[2.5rem] border-[8px] border-white shadow-[0_30px_60px_rgba(99,91,255,0.2)] ring-1 ring-slate-100"
                 decoding="async" 
               />
             </motion.div>
@@ -150,130 +157,209 @@ export default function TriozyLandingPagePro() {
       </section>
 
       {/* INFINITE TICKER */}
-      <div className="border-y border-blue-900/10 bg-white py-4 overflow-hidden flex whitespace-nowrap">
+      <div className="border-y border-[#635BFF]/10 bg-white py-4 overflow-hidden flex whitespace-nowrap">
         <motion.div 
           animate={{ x: [0, -1000] }} 
           transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
-          className="flex gap-12 items-center text-[#0e3084]/40 font-bold text-xl uppercase tracking-widest"
+          className="flex gap-12 items-center text-[#635BFF]/40 font-bold text-xl uppercase tracking-widest"
         >
-          <span>Plumbing</span> • <span>Electricians</span> • <span>Home Cleaning</span> • <span>Tutoring</span> • <span>Event Planning</span> • <span>Carpentry</span> • <span>Photography</span> • <span>Plumbing</span> • <span>Electricians</span> • <span>Home Cleaning</span>
+          <span>PGs & Rooms</span> • <span>Find Flatmates</span> • <span>Used Furniture</span> • <span>Home Appliances</span> • <span>Tiffin Services</span> • <span>Maids</span> • <span>PGs & Rooms</span> • <span>Find Flatmates</span> • <span>Used Furniture</span>
         </motion.div>
       </div>
 
-      {/* 3. BENTO GRID FEATURES */}
-      <section id="features" className="py-24 max-w-7xl mx-auto px-6 bg-[#f4f7fb]">
+      {/* 3. BANNER SECTION - With 6 Floating Badges */}
+      <section className="bg-[#f8fafc] py-24 relative overflow-hidden z-10">
+        <div className="absolute left-[-10%] top-1/2 -translate-y-1/2 w-96 h-96 bg-rose-400/10 blur-[100px] rounded-full" />
+        <div className="absolute right-[-10%] top-1/2 -translate-y-1/2 w-96 h-96 bg-sky-400/10 blur-[100px] rounded-full" />
+
+        <div className="max-w-7xl mx-auto px-6 relative">
+          
+          {/* Left Side Floaters */}
+          <motion.div 
+            animate={{ y: [-10, 10, -10] }} transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+            className="hidden lg:flex absolute -left-16 top-[15%] bg-white px-5 py-3 rounded-2xl shadow-xl border border-slate-100 items-center gap-2 z-20"
+          >
+            <CheckCircle2 size={20} className="text-green-500" />
+            <span className="font-bold text-slate-700 text-sm">100% Verified</span>
+          </motion.div>
+
+          <motion.div 
+            animate={{ y: [10, -10, 10] }} transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
+            className="hidden lg:flex absolute -left-4 top-[50%] bg-white px-5 py-3 rounded-2xl shadow-xl border border-slate-100 items-center gap-2 z-20"
+          >
+            <HeartHandshake size={20} className="text-rose-500" />
+            <span className="font-bold text-slate-700 text-sm">Connect with Ease</span>
+          </motion.div>
+
+          <motion.div 
+            animate={{ y: [-5, 15, -5] }} transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut" }}
+            className="hidden lg:flex absolute -left-12 bottom-[15%] bg-white px-5 py-3 rounded-2xl shadow-xl border border-slate-100 items-center gap-2 z-20"
+          >
+            <Sparkles size={20} className="text-amber-500" />
+            <span className="font-bold text-slate-700 text-sm">Best Deals</span>
+          </motion.div>
+
+          {/* Right Side Floaters */}
+          <motion.div 
+            animate={{ y: [15, -5, 15] }} transition={{ repeat: Infinity, duration: 4.2, ease: "easeInOut" }}
+            className="hidden lg:flex absolute -right-16 top-[15%] bg-white px-5 py-3 rounded-2xl shadow-xl border border-slate-100 items-center gap-2 z-20"
+          >
+            <Zap size={20} className="text-sky-500" />
+            <span className="font-bold text-slate-700 text-sm">Zero Hassle</span>
+          </motion.div>
+
+          <motion.div 
+            animate={{ y: [-15, 5, -15] }} transition={{ repeat: Infinity, duration: 4.8, ease: "easeInOut" }}
+            className="hidden lg:flex absolute -right-6 top-[50%] bg-white px-5 py-3 rounded-2xl shadow-xl border border-slate-100 items-center gap-2 z-20"
+          >
+            <ShieldCheck size={20} className="text-[#635BFF]" />
+            <span className="font-bold text-slate-700 text-sm">Secure Chat</span>
+          </motion.div>
+
+          <motion.div 
+            animate={{ y: [5, -15, 5] }} transition={{ repeat: Infinity, duration: 3.8, ease: "easeInOut" }}
+            className="hidden lg:flex absolute -right-12 bottom-[15%] bg-white px-5 py-3 rounded-2xl shadow-xl border border-slate-100 items-center gap-2 z-20"
+          >
+            <Users size={20} className="text-emerald-500" />
+            <span className="font-bold text-slate-700 text-sm">Trusted Community</span>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-[2.5rem] overflow-hidden shadow-[0_20px_60px_rgba(99,91,255,0.15)] bg-white border-[10px] border-white ring-1 ring-slate-100 mx-auto max-w-5xl relative z-10"
+          >
+            <img 
+              src={bannerImage} 
+              alt="Triozy Ecosystem" 
+              className="w-full h-auto object-cover"
+            />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 4. 2x2 FEATURES GRID */}
+      <section id="features" className="pb-24 pt-10 max-w-7xl mx-auto px-6 bg-[#f8fafc]">
         <div className="text-center mb-16 max-w-2xl mx-auto">
-          <h2 className="text-4xl font-extrabold text-[#0e3084] mb-6">One app. Every local solution.</h2>
-          <p className="text-lg text-slate-600">Why download five different apps when you can manage your entire local life from one beautifully designed dashboard?</p>
+          <h2 className="text-4xl font-extrabold text-[#635BFF] mb-6">Everything you need for your place.</h2>
+          <p className="text-lg text-slate-600">Why juggle five different apps to move? Triozy brings your entire housing and settling-in journey into one perfectly organized flow.</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-blue-900/5 flex flex-col items-start hover:shadow-xl hover:shadow-[#0e3084]/5 transition-all duration-300 group">
-            <div className="w-16 h-16 bg-[#1e40af] text-white rounded-2xl flex items-center justify-center mb-8 shadow-md group-hover:scale-110 transition-transform">
-              <Wrench size={32} />
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 flex flex-col items-start hover:shadow-xl hover:border-rose-100 transition-all duration-300 group">
+            <div className="w-16 h-16 bg-rose-500 text-white rounded-2xl flex items-center justify-center mb-6 shadow-md group-hover:scale-110 transition-transform">
+              <Home size={32} />
             </div>
-            <h3 className="text-2xl font-bold mb-3 text-[#0e3084]">Services</h3>
-            <p className="text-slate-600 mb-8 flex-grow leading-relaxed">Search for verified professionals. Read reviews, compare pricing, and book your service instantly without the hassle.</p>
-            <span className="text-[#1e40af] font-bold flex items-center gap-2 group-hover:gap-3 transition-all">Explore Services <ArrowRight size={18}/></span>
+            <h3 className="text-2xl font-bold mb-3 text-slate-900">Find Your Space</h3>
+            <p className="text-slate-600 mb-6 flex-grow leading-relaxed">Browse verified listings for PGs, flats, and rooms. Skip the endless searching and connect directly with trusted owners.</p>
+            <span className="text-rose-500 font-bold flex items-center gap-2 group-hover:gap-3 transition-all">Explore Housing <ArrowRight size={18}/></span>
           </div>
 
-          <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-blue-900/5 flex flex-col items-start hover:shadow-xl hover:shadow-[#0e3084]/5 transition-all duration-300 group">
-            <div className="w-16 h-16 bg-[#92400e] text-white rounded-2xl flex items-center justify-center mb-8 shadow-md group-hover:scale-110 transition-transform">
-              <FileText size={32} />
-            </div>
-            <h3 className="text-2xl font-bold mb-3 text-slate-900">Requests</h3>
-            <p className="text-slate-600 mb-8 flex-grow leading-relaxed">Have a unique job? Post your exact requirements and let local professionals pitch their offers directly to you.</p>
-            <span className="text-[#92400e] font-bold flex items-center gap-2 group-hover:gap-3 transition-all">Post a Request <ArrowRight size={18}/></span>
-          </div>
-
-          <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-blue-900/5 flex flex-col items-start hover:shadow-xl hover:shadow-[#0e3084]/5 transition-all duration-300 group">
-            <div className="w-16 h-16 bg-[#166534] text-white rounded-2xl flex items-center justify-center mb-8 shadow-md group-hover:scale-110 transition-transform">
+          <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 flex flex-col items-start hover:shadow-xl hover:border-sky-100 transition-all duration-300 group">
+            <div className="w-16 h-16 bg-sky-500 text-white rounded-2xl flex items-center justify-center mb-6 shadow-md group-hover:scale-110 transition-transform">
               <Users size={32} />
             </div>
-            <h3 className="text-2xl font-bold mb-3 text-slate-900">Mates</h3>
-            <p className="text-slate-600 mb-8 flex-grow leading-relaxed">It's not just about work. Find the right flatmates, share rides, and connect with trusted help around you.</p>
-            <span className="text-[#166534] font-bold flex items-center gap-2 group-hover:gap-3 transition-all">Connect Now <ArrowRight size={18}/></span>
+            <h3 className="text-2xl font-bold mb-3 text-slate-900">Meet Your Match</h3>
+            <p className="text-slate-600 mb-6 flex-grow leading-relaxed">Looking for a vibe check? Find compatible flatmates based on your lifestyle, habits, and preferences effortlessly.</p>
+            <span className="text-sky-500 font-bold flex items-center gap-2 group-hover:gap-3 transition-all">Find Flatmates <ArrowRight size={18}/></span>
+          </div>
+
+          <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 flex flex-col items-start hover:shadow-xl hover:border-emerald-100 transition-all duration-300 group">
+            <div className="w-16 h-16 bg-emerald-500 text-white rounded-2xl flex items-center justify-center mb-6 shadow-md group-hover:scale-110 transition-transform">
+              <ShoppingBag size={32} />
+            </div>
+            <h3 className="text-2xl font-bold mb-3 text-slate-900">Marketplace</h3>
+            <p className="text-slate-600 mb-6 flex-grow leading-relaxed">Buy and sell move-in essentials—from used furniture to appliances. Perfect for getting your new place set up affordably.</p>
+            <span className="text-emerald-500 font-bold flex items-center gap-2 group-hover:gap-3 transition-all">Shop Essentials <ArrowRight size={18}/></span>
+          </div>
+
+          <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 flex flex-col items-start hover:shadow-xl hover:border-amber-100 transition-all duration-300 group">
+            <div className="w-16 h-16 bg-amber-500 text-white rounded-2xl flex items-center justify-center mb-6 shadow-md group-hover:scale-110 transition-transform">
+              <Utensils size={32} />
+            </div>
+            <h3 className="text-2xl font-bold mb-3 text-slate-900">Daily Services</h3>
+            <p className="text-slate-600 mb-6 flex-grow leading-relaxed">Settling in means eating well and keeping it clean. Discover and connect with trusted local maids, tiffins, and home services.</p>
+            <span className="text-amber-500 font-bold flex items-center gap-2 group-hover:gap-3 transition-all">Find Services <ArrowRight size={18}/></span>
           </div>
         </div>
       </section>
 
-      {/* 4. HOW IT WORKS */}
-      <section id="how-it-works" className="py-24 bg-gradient-to-b from-[#0e3084] to-[#173a94] text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[80px]" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-300/10 rounded-full blur-[80px]" />
+      {/* 5. HOW IT WORKS */}
+      <section id="how-it-works" className="py-24 bg-gradient-to-b from-[#635BFF] to-[#4039A3] text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/5 rounded-full blur-[80px]" />
 
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center relative z-10">
           <div>
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-12 leading-tight">From problem to <br/><span className="text-blue-300">done in three steps.</span></h2>
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-12 leading-tight">From searching to <br/><span className="text-[#E5E0FF]">settling in 3 steps.</span></h2>
             
-            <div className="space-y-12">
-              <div className="flex gap-6 group">
+            <div className="space-y-10">
+              <div className="flex gap-6 group cursor-default">
                 <div className="flex flex-col items-center">
-                  <div className="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center font-bold text-2xl group-hover:bg-blue-500 group-hover:text-white transition-colors">1</div>
-                  <div className="w-0.5 h-full bg-white/10 mt-4"></div>
+                  <div className="w-14 h-14 shrink-0 rounded-full bg-white text-[#635BFF] flex items-center justify-center font-bold text-2xl shadow-lg transition-colors duration-300 group-hover:bg-rose-500 group-hover:text-white">1</div>
+                  <div className="w-0.5 h-full bg-white/20 mt-4"></div>
                 </div>
-                <div className="pb-8">
-                  <h3 className="text-2xl font-bold mb-2">Search or Post</h3>
-                  <p className="text-blue-100/80 text-lg leading-relaxed">Type what you need into the smart search, or post a custom request to the community board.</p>
+                <div className="pb-4">
+                  <h3 className="text-2xl font-bold mb-2 flex items-center gap-3">Explore & Filter <Search size={20} className="text-rose-400" /></h3>
+                  <p className="text-white/80 text-lg leading-relaxed">Browse verified rooms, find compatible flatmates, or discover daily essentials in your new city.</p>
                 </div>
               </div>
               
-              <div className="flex gap-6 group">
+              <div className="flex gap-6 group cursor-default">
                 <div className="flex flex-col items-center">
-                  <div className="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center font-bold text-2xl group-hover:bg-amber-500 group-hover:text-white transition-colors">2</div>
-                  <div className="w-0.5 h-full bg-white/10 mt-4"></div>
+                  <div className="w-14 h-14 shrink-0 rounded-full bg-white text-[#635BFF] flex items-center justify-center font-bold text-2xl shadow-lg transition-colors duration-300 group-hover:bg-sky-500 group-hover:text-white">2</div>
+                  <div className="w-0.5 h-full bg-white/20 mt-4"></div>
                 </div>
-                <div className="pb-8">
-                  <h3 className="text-2xl font-bold mb-2 flex items-center gap-3">Chat or Call & Confirm <PhoneCall size={20} className="text-amber-400" /></h3>
-                  <p className="text-blue-100/80 text-lg leading-relaxed">Review profiles, chat securely or hop on a call inside the app, and agree on details before committing.</p>
+                <div className="pb-4">
+                  <h3 className="text-2xl font-bold mb-2 flex items-center gap-3">Connect & Chat <MessageSquareText size={20} className="text-sky-400" /></h3>
+                  <p className="text-white/80 text-lg leading-relaxed">Use our secure in-app chat to talk directly with verified owners, sellers, or future roommates.</p>
                 </div>
               </div>
 
-              <div className="flex gap-6 group">
+              <div className="flex gap-6 group cursor-default">
                 <div className="flex flex-col items-center">
-                  <div className="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center font-bold text-2xl group-hover:bg-green-500 group-hover:text-white transition-colors">3</div>
+                  <div className="w-14 h-14 shrink-0 rounded-full bg-white text-[#635BFF] flex items-center justify-center font-bold text-2xl shadow-lg transition-colors duration-300 group-hover:bg-emerald-500 group-hover:text-white">3</div>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold mb-2 flex items-center gap-3">Get it Done <CheckCircle size={20} className="text-green-400" /></h3>
-                  <p className="text-blue-100/80 text-lg leading-relaxed">The professional arrives, does the job, and you leave a review to help the community.</p>
+                  <h3 className="text-2xl font-bold mb-2 flex items-center gap-3">Move In & Settle <CheckCircle size={20} className="text-emerald-400" /></h3>
+                  <p className="text-white/80 text-lg leading-relaxed">Finalize your place, grab your essentials from the marketplace, and start living comfortably from day one.</p>
                 </div>
               </div>
             </div>
           </div>
           
           <div className="relative h-[650px] hidden md:block perspective-1000">
-            {/* Fixed aspect ratio and object-contain for overlapping cards too */}
-            <div className="absolute top-0 right-0 w-[260px] aspect-[9/19] rounded-[2rem] border-[4px] border-slate-900 shadow-2xl z-10 rotate-6 overflow-hidden bg-slate-900">
-              <img src={galleryImages[1]} className="w-full h-full object-contain" alt="App UI" />
+            <div className="absolute top-0 right-0 w-[260px] z-10 rotate-6 transition-transform hover:scale-105">
+              <img src={galleryImages[0]} className="w-full h-auto rounded-[2.5rem] border-[8px] border-white ring-1 ring-slate-800 shadow-2xl" alt="App UI 1" />
             </div>
-            <div className="absolute top-20 left-0 w-[260px] aspect-[9/19] rounded-[2rem] border-[4px] border-slate-900 shadow-2xl z-20 -rotate-3 overflow-hidden bg-slate-900">
-               <img src={galleryImages[2]} className="w-full h-full object-contain" alt="App UI" />
+            <div className="absolute top-20 left-0 w-[260px] z-20 -rotate-3 transition-transform hover:scale-105">
+               <img src={galleryImages[1]} className="w-full h-auto rounded-[2.5rem] border-[8px] border-white ring-1 ring-slate-800 shadow-2xl" alt="App UI 2" />
             </div>
-            <div className="absolute bottom-[-60px] right-30 w-[260px] aspect-[9/19] rounded-[2rem] border-[4px] border-slate-900 shadow-2xl z-30 rotate-2 overflow-hidden bg-slate-900">
-               <img src={galleryImages[3]} className="w-full h-full object-contain" alt="App UI" />
+            <div className="absolute bottom-[-60px] right-30 w-[260px] z-30 rotate-2 transition-transform hover:scale-105">
+               <img src={galleryImages[2]} className="w-full h-auto rounded-[2.5rem] border-[8px] border-white ring-1 ring-slate-800 shadow-2xl" alt="App UI 3" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* 5. SMOOTH SCROLL GALLERY */}
-      <section className="py-24 bg-[#f4f7fb] overflow-hidden">
+      {/* 6. SMOOTH SCROLL GALLERY */}
+      <section className="py-24 bg-[#f8fafc] overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
-          <h2 className="text-4xl font-extrabold text-[#0e3084]">Smooth Interface.</h2>
-          <p className="text-lg text-slate-600 mt-4">A user interface designed to get you what you need, faster.</p>
+          <h2 className="text-4xl font-extrabold text-[#635BFF]">A seamless experience.</h2>
+          <p className="text-lg text-slate-600 mt-4">Designed cleanly to reduce friction during your relocation.</p>
         </div>
         
-        <div className="flex overflow-x-auto gap-8 px-6 pb-12 snap-x snap-mandatory scroll-smooth" style={{ scrollbarWidth: 'none' }}>
+        <div className="flex overflow-x-auto gap-10 px-6 pb-12 snap-x snap-mandatory scroll-smooth" style={{ scrollbarWidth: 'none' }}>
           {galleryImages.map((src, index) => (
             <div 
               key={index}
-              className="snap-center shrink-0 w-[280px] md:w-[320px]"
+              className="snap-center shrink-0 w-[260px] md:w-[300px]"
             >
-              <div className="rounded-[2.5rem] border-[6px] border-slate-900 shadow-xl overflow-hidden bg-slate-900 aspect-[9/19]">
+              <div className="rounded-[2.5rem] border-[12px] border-white shadow-2xl shadow-[#635BFF]/20 ring-1 ring-slate-200 overflow-hidden bg-white">
                 <img 
                   src={src} 
                   alt={`Triozy Screen ${index + 1}`} 
-                  className="w-full h-full object-contain bg-slate-900"
+                  className="w-full h-auto object-cover"
                 />
               </div>
             </div>
@@ -281,34 +367,34 @@ export default function TriozyLandingPagePro() {
         </div>
       </section>
 
-      {/* 6. TESTIMONIALS */}
-      <section className="py-24 bg-white border-y border-blue-900/5">
+      {/* 7. TESTIMONIALS */}
+      <section className="py-24 bg-white border-y border-[#635BFF]/5">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-extrabold text-[#0e3084] mb-4">Loved by the community</h2>
+            <h2 className="text-4xl font-extrabold text-[#635BFF] mb-4">Loved by city movers</h2>
             <div className="flex items-center justify-center gap-1 text-yellow-500 mb-2">
               <Star fill="currentColor" /><Star fill="currentColor" /><Star fill="currentColor" /><Star fill="currentColor" /><Star fill="currentColor" />
             </div>
-            <p className="font-semibold text-slate-600">4.6/5 Rating on the Play Store</p>
+            <p className="font-semibold text-slate-600">Top Rated Housing & Lifestyle App</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { name: "Rahul Saw", role: "Homeowner", text: "Finally replaced my messy contacts list. Found a brilliant plumber in 10 minutes. The interface is just so clean and easy." },
-              { name: "Amit Kumar", role: "Local Electrician", text: "As a provider, Triozy has been a game changer. I get steady requests and can manage all my chats right in the app." },
-              { name: "Anjali Deshpande", role: "Community Member", text: "I used the 'Mates' feature to find a ride partner for my daily commute. It's been super convenient and cost-effective. Great idea!" }
+              { name: "Rahul Saw", role: "IT Professional", text: "Moving to a new city was daunting until I found Triozy. I booked my PG and even bought a second-hand study table from someone in the same building!" },
+              { name: "Amit Kumar", role: "PG Owner", text: "Listing my rooms on Triozy has been a breeze. The verified profiles mean I get serious inquiries, and the in-app chat keeps my personal number private." },
+              { name: "Anjali Deshpande", role: "Student", text: "Finding a flatmate who matched my vibe felt impossible. Triozy's matching feature helped me find a roommate who shares my exact study habits and lifestyle." }
             ].map((review, i) => (
-              <div key={i} className="bg-[#f4f7fb] p-8 rounded-3xl shadow-sm border border-blue-900/5">
+              <div key={i} className="bg-[#f8fafc] p-8 rounded-3xl shadow-sm border border-[#635BFF]/5">
                 <div className="flex text-yellow-400 mb-4">
                   {[...Array(5)].map((_, idx) => <Star key={idx} size={16} fill="currentColor" />)}
                 </div>
                 <p className="text-slate-700 mb-6 line-clamp-4">"{review.text}"</p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-[#0e3084] rounded-full flex items-center justify-center font-bold text-white shadow-md">
+                  <div className="w-10 h-10 bg-[#635BFF] rounded-full flex items-center justify-center font-bold text-white shadow-md">
                     {review.name.charAt(0)}
                   </div>
                   <div>
-                    <p className="font-bold text-[#0e3084] text-sm">{review.name}</p>
+                    <p className="font-bold text-[#635BFF] text-sm">{review.name}</p>
                     <p className="text-slate-500 text-xs">{review.role}</p>
                   </div>
                 </div>
@@ -318,12 +404,12 @@ export default function TriozyLandingPagePro() {
         </div>
       </section>
 
-      {/* 7. FAQ SECTION */}
-      <section id="faq" className="py-24 bg-[#f4f7fb]">
+      {/* 8. FAQ SECTION */}
+      <section id="faq" className="py-24 bg-[#f8fafc]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16 max-w-2xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-[#0e3084] mb-6">Frequently Asked Questions</h2>
-            <p className="text-lg text-slate-600">Everything you need to know about the product and billing. Can't find the answer you're looking for? Reach out to our customer support team.</p>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-[#635BFF] mb-6">Frequently Asked Questions</h2>
+            <p className="text-lg text-slate-600">Everything you need to know about housing, flatmates, and the marketplace. Can't find the answer? Reach out to our support team.</p>
           </div>
           
           <div className="grid md:grid-cols-2 gap-6 lg:gap-10">
@@ -331,13 +417,13 @@ export default function TriozyLandingPagePro() {
               {faqs.slice(0, 4).map((faq, index) => (
                 <div 
                   key={index} 
-                  className="border border-blue-900/10 rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-md transition-all duration-300"
+                  className="border border-[#635BFF]/10 rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-md transition-all duration-300"
                 >
                   <button 
                     onClick={() => setOpenFaq(openFaq === index ? null : index)}
                     className="w-full px-6 py-6 flex items-start justify-between bg-white text-left"
                   >
-                    <span className="font-bold text-lg text-[#0e3084] pr-4">{faq.question}</span>
+                    <span className="font-bold text-lg text-[#635BFF] pr-4">{faq.question}</span>
                     <ChevronDown 
                       className={`text-slate-400 transition-transform duration-300 flex-shrink-0 mt-1 ${openFaq === index ? "rotate-180" : ""}`} 
                     />
@@ -364,13 +450,13 @@ export default function TriozyLandingPagePro() {
                 return (
                   <div 
                     key={globalIndex} 
-                    className="border border-blue-900/10 rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-md transition-all duration-300"
+                    className="border border-[#635BFF]/10 rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-md transition-all duration-300"
                   >
                     <button 
                       onClick={() => setOpenFaq(openFaq === globalIndex ? null : globalIndex)}
                       className="w-full px-6 py-6 flex items-start justify-between bg-white text-left"
                     >
-                      <span className="font-bold text-lg text-[#0e3084] pr-4">{faq.question}</span>
+                      <span className="font-bold text-lg text-[#635BFF] pr-4">{faq.question}</span>
                       <ChevronDown 
                         className={`text-slate-400 transition-transform duration-300 flex-shrink-0 mt-1 ${openFaq === globalIndex ? "rotate-180" : ""}`} 
                       />
@@ -395,57 +481,62 @@ export default function TriozyLandingPagePro() {
         </div>
       </section>
 
-      {/* 8.  FOOTER */}
-      <footer className="bg-[#0e3084] text-white pt-24 pb-12 relative overflow-hidden">
-        <div className="absolute top-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-400/50 to-transparent"></div>
+      {/* 9. FOOTER */}
+      <footer className="bg-[#2A2675] text-white pt-24 pb-12 relative overflow-hidden">
+        <div className="absolute top-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#635BFF]/80 to-transparent"></div>
         
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          {/* Top CTA area */}
           <div className="text-center mb-24">
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-6">Ready to connect?</h2>
-            <p className="text-blue-200 mb-10 text-xl max-w-xl mx-auto">
-              Join thousands of locals who are already finding services, posting jobs, and meeting mates on Triozy.
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-6">Ready to move smarter?</h2>
+            <p className="text-[#E5E0FF] mb-10 text-xl max-w-xl mx-auto">
+              Join thousands who are already finding rooms, matching with flatmates, and setting up their homes on Triozy.
             </p>
             <a 
               href={playStoreLink} 
-              className="inline-flex items-center justify-center gap-3 bg-white text-[#0e3084] px-10 py-5 rounded-full text-xl font-bold hover:scale-105 transition-transform shadow-2xl"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block"
             >
-              Download the App Now
+              <img 
+                src="/playstore_icon.png" 
+                alt="Get it on Google Play" 
+                className="h-20 sm:h-24 w-auto hover:scale-[1.02] transition-transform drop-shadow-2xl"
+              />
             </a>
           </div>
 
-          {/* Footer Grid */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16 pt-12 border-t border-white/10">
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center gap-3 mb-6">
-                <img src={logoUrl} alt="Triozy" className="w-12 h-12 rounded-xl shadow-lg border-2 border-white/10" />
-                <span className="text-2xl font-extrabold tracking-tight">Triozy</span>
+                <img src={logoUrl} alt="Triozy" className="w-12 h-12 rounded-xl shadow-lg border-2 border-white/10 object-cover" />
+                <span className="text-2xl font-extrabold tracking-tight text-white">Triozy</span>
               </div>
-              <p className="text-blue-200/80 mb-6 max-w-sm leading-relaxed">
-                Your local network for everything. Find services, post requests, or connect with a mate — all near you.
+              <p className="text-white/70 mb-6 max-w-sm leading-relaxed">
+                Your smart moving network. Find housing, connect with flatmates, and discover maids, tiffins, and essentials - all in one flow.
               </p>
               <div className="flex gap-4">
-                <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-500 transition-colors">
-                  <FaInstagram size={20} />
+                <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/triozy.app/" className="w-10 h-10 rounded-full bg-white/10 border border-white/10 flex items-center justify-center hover:bg-[#635BFF] transition-colors">
+                  <FaInstagram size={18} />
                 </a>
-                <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/triozy/" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-500 transition-colors">
-                  <FaLinkedin size={20} />
+                <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/triozy/" className="w-10 h-10 rounded-full bg-white/10 border border-white/10 flex items-center justify-center hover:bg-[#635BFF] transition-colors">
+                  <FaLinkedin size={18} />
                 </a>
               </div>
             </div>
 
             <div>
-              <h4 className="text-lg font-bold mb-6 text-white">Company</h4>
-              <ul className="space-y-4 text-blue-200/80 font-medium">
-                <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
-                <li><a href="#features" className="hover:text-white transition-colors">Features</a></li>
+              <h4 className="text-lg font-bold mb-6 text-white">Platform</h4>
+              <ul className="space-y-4 text-white/70 font-medium">
+                <li><a href="#features" className="hover:text-white transition-colors">Find a PG/Room</a></li>
+                <li><a href="#features" className="hover:text-white transition-colors">Find Flatmates</a></li>
+                <li><a href="#features" className="hover:text-white transition-colors">Marketplace</a></li>
+                <li><a href="#features" className="hover:text-white transition-colors">Maids & Tiffins</a></li>
               </ul>
             </div>
 
             <div>
               <h4 className="text-lg font-bold mb-6 text-white">Support & Legal</h4>
-              <ul className="space-y-4 text-blue-200/80 font-medium">
+              <ul className="space-y-4 text-white/70 font-medium">
                 <li>
                   <a href="mailto:triozyapp@gmail.com" className="flex items-center gap-2 hover:text-white transition-colors">
                     <Mail size={16} /> triozyapp@gmail.com
@@ -457,8 +548,8 @@ export default function TriozyLandingPagePro() {
             </div>
           </div>
 
-          <div className="pt-8 border-t border-white/10 text-center">
-             <p className="text-blue-200/60 text-sm font-medium">© 2026 Triozy. All rights reserved.</p>
+          <div className="pt-8 border-t border-white/10 text-center flex flex-col sm:flex-row justify-between items-center gap-4">
+             <p className="text-white/50 text-sm font-medium">© 2026 Triozy. Built for modern city moves.</p>
           </div>
         </div>
       </footer>
