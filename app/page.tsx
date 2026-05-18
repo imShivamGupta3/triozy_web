@@ -31,19 +31,19 @@ export default function TriozyLandingPagePro() {
   const faqs = [
     {
       question: "What exactly can I find on Triozy?",
-      answer: "Triozy is your all-in-one moving companion. You can find verified PGs, rooms, flats, compatible flatmates, and a marketplace for daily essentials like furniture, appliances, maids, and tiffin services."
+      answer: "Triozy is your all-in-one moving companion. You can find verified PGs, rooms for rent, broker-free flats, compatible flatmates, and a marketplace for daily essentials like used furniture, appliances, maids, and tiffin services."
     },
     {
-      question: "How do you ensure the listings are genuine?",
-      answer: "Safety is our priority. Sellers and owners on Triozy are verified, and you can view their profiles and community history before making any commitments."
+      question: "How do you ensure the housing listings are genuine?",
+      answer: "Safety is our priority. Sellers and owners on Triozy are verified, and you can view their profiles and community history before making any rental commitments."
     },
     {
       question: "Can I sell my old furniture when I move out?",
-      answer: "Absolutely. Our marketplace feature lets you list your move-out essentials so incoming renters in your neighborhood can buy them easily."
+      answer: "Absolutely. Our marketplace feature lets you list your move-out essentials so incoming renters in your neighborhood can buy used furniture locally and affordably."
     },
     {
-      question: "How does the flatmate matching work?",
-      answer: "We help you find your vibe. You can browse detailed profiles of people looking for flatmates, matching based on lifestyle, habits, and housing preferences."
+      question: "How does the flatmate finder work?",
+      answer: "We help you find your vibe. You can browse detailed profiles of people looking for flatmates near you, matching based on lifestyle, habits, and housing preferences."
     },
     {
       question: "Do I have to share my personal phone number?",
@@ -51,7 +51,7 @@ export default function TriozyLandingPagePro() {
     },
     {
       question: "Is there a fee to use the Triozy app?",
-      answer: "Downloading Triozy and browsing listings is completely free. We designed it to reduce the friction and hidden costs usually associated with moving."
+      answer: "Downloading the Triozy app and browsing listings is completely free. We designed it to reduce the friction and broker hassle usually associated with moving."
     },
     {
       question: "Can I find daily services like Maids and Tiffins?",
@@ -59,18 +59,52 @@ export default function TriozyLandingPagePro() {
     },
     {
       question: "Is Triozy available in my city?",
-      answer: "We are rapidly expanding across major urban hubs to help students and professionals relocate effortlessly. Download the app to see the active listings in your area."
+      answer: "We are rapidly expanding across major urban hubs to help students and professionals relocate effortlessly. Download the app to see the active broker-free flats and rooms in your area."
     }
   ];
 
+  // SEO Schema Markup Generation
+  const schemaOrgJSONLD = {
+    "@context": "http://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "Triozy App",
+        "operatingSystem": "ANDROID",
+        "applicationCategory": "LifestyleApplication",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "INR"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": faqs.map(faq => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer
+          }
+        }))
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-[#f8fafc] text-slate-900 font-sans selection:bg-[#E5E0FF] selection:text-[#635BFF]">
+      {/* INJECT SCHEMA FOR GOOGLE */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrgJSONLD) }}
+      />
       
       {/* 1. STICKY NAVBAR  */}
       <nav className="fixed w-full top-0 z-50 bg-[#EAE8FF]/80 backdrop-blur-2xl border-b border-[#635BFF]/15 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3 cursor-pointer group">
-            <img src={logoUrl} alt="Triozy Logo" className="w-10 h-10 rounded-xl shadow-sm object-cover group-hover:shadow-md transition-shadow" />
+            <img src={logoUrl} alt="Triozy App Logo" className="w-10 h-10 rounded-xl shadow-sm object-cover group-hover:shadow-md transition-shadow" />
             <span className="text-2xl font-extrabold tracking-tight text-[#635BFF]">Triozy</span>
           </div>
           <div className="hidden md:flex gap-8 text-sm font-semibold text-slate-700">
@@ -101,16 +135,20 @@ export default function TriozyLandingPagePro() {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-[#635BFF] font-bold text-sm mb-6 shadow-sm border border-[#635BFF]/20"
             >
               <ShieldCheck size={16} />
-              <span>Verified Listings & Sellers</span>
+              <span>Broker Free Flats & PGs</span>
             </motion.div>
+            
+            {/* SEO Optimized H1 Header */}
             <h1 className="text-5xl lg:text-7xl font-extrabold tracking-tight mb-8 leading-[1.1] text-slate-900">
+              <span className="block text-xl text-[#635BFF] font-bold mb-4 tracking-normal">Verified Housing & Flatmate Finder</span>
               Move smarter. <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#635BFF] to-[#8A78FF]">
                 Settle faster.
               </span>
             </h1>
+            
             <p className="text-xl text-slate-600 mb-10 leading-relaxed max-w-xl">
-              Housing search, flatmate matching, and a marketplace for your daily essentials - all in one seamless experience built for modern city living.
+              Housing search, flatmate matching, and a local marketplace for your daily essentials - all in one seamless experience built for modern city relocation.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
@@ -122,7 +160,7 @@ export default function TriozyLandingPagePro() {
               >
                 <img 
                   src="/playstore_icon.png" 
-                  alt="Get it on Google Play" 
+                  alt="Download Triozy App on Google Play" 
                   className="h-20 sm:h-24 w-auto hover:scale-[1.02] transition-transform drop-shadow-md"
                 />
               </a>
@@ -130,9 +168,9 @@ export default function TriozyLandingPagePro() {
 
             <div className="flex items-center gap-4 text-sm text-slate-600 font-medium">
               <div className="flex -space-x-3">
-                <img src={galleryImages[0]} alt="User" className="w-10 h-10 rounded-full border-2 border-white object-cover bg-slate-200" />
-                <img src={galleryImages[1]} alt="User" className="w-10 h-10 rounded-full border-2 border-white object-cover bg-slate-300" />
-                <img src={galleryImages[2]} alt="User" className="w-10 h-10 rounded-full border-2 border-white object-cover bg-slate-400" />
+                <img src={galleryImages[0]} alt="Triozy user profile" className="w-10 h-10 rounded-full border-2 border-white object-cover bg-slate-200" />
+                <img src={galleryImages[1]} alt="Triozy verified user" className="w-10 h-10 rounded-full border-2 border-white object-cover bg-slate-300" />
+                <img src={galleryImages[2]} alt="Triozy community member" className="w-10 h-10 rounded-full border-2 border-white object-cover bg-slate-400" />
               </div>
               <p>Join thousands streamlining their next move</p>
             </div>
@@ -148,7 +186,7 @@ export default function TriozyLandingPagePro() {
             >
               <img 
                 src={heroImage} 
-                alt="Triozy App Home Screen" 
+                alt="Triozy App interface for finding rooms for rent and flatmates" 
                 className="w-full h-auto rounded-[2.5rem] border-[8px] border-white shadow-[0_30px_60px_rgba(99,91,255,0.2)] ring-1 ring-slate-100"
                 decoding="async" 
               />
@@ -164,7 +202,7 @@ export default function TriozyLandingPagePro() {
           transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
           className="flex gap-12 items-center text-[#635BFF]/40 font-bold text-xl uppercase tracking-widest"
         >
-          <span>PGs & Rooms</span> • <span>Find Flatmates</span> • <span>Used Furniture</span> • <span>Home Appliances</span> • <span>Tiffin Services</span> • <span>Maids</span> • <span>PGs & Rooms</span> • <span>Find Flatmates</span> • <span>Used Furniture</span>
+          <span>Rooms for Rent</span> • <span>Find Flatmates Near Me</span> • <span>Buy Used Furniture</span> • <span>Home Appliances</span> • <span>Tiffin Services</span> • <span>PG Near Me</span> • <span>Broker Free Flats</span> • <span>Find Flatmates</span>
         </motion.div>
       </div>
 
@@ -175,52 +213,32 @@ export default function TriozyLandingPagePro() {
 
         <div className="max-w-7xl mx-auto px-6 relative">
           
-          {/* Left Side Floaters */}
-          <motion.div 
-            animate={{ y: [-10, 10, -10] }} transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-            className="hidden lg:flex absolute -left-16 top-[15%] bg-white px-5 py-3 rounded-2xl shadow-xl border border-slate-100 items-center gap-2 z-20"
-          >
+          <motion.div animate={{ y: [-10, 10, -10] }} transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }} className="hidden lg:flex absolute -left-16 top-[15%] bg-white px-5 py-3 rounded-2xl shadow-xl border border-slate-100 items-center gap-2 z-20">
             <CheckCircle2 size={20} className="text-green-500" />
             <span className="font-bold text-slate-700 text-sm">100% Verified</span>
           </motion.div>
 
-          <motion.div 
-            animate={{ y: [10, -10, 10] }} transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
-            className="hidden lg:flex absolute -left-4 top-[50%] bg-white px-5 py-3 rounded-2xl shadow-xl border border-slate-100 items-center gap-2 z-20"
-          >
+          <motion.div animate={{ y: [10, -10, 10] }} transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }} className="hidden lg:flex absolute -left-4 top-[50%] bg-white px-5 py-3 rounded-2xl shadow-xl border border-slate-100 items-center gap-2 z-20">
             <HeartHandshake size={20} className="text-rose-500" />
             <span className="font-bold text-slate-700 text-sm">Connect with Ease</span>
           </motion.div>
 
-          <motion.div 
-            animate={{ y: [-5, 15, -5] }} transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut" }}
-            className="hidden lg:flex absolute -left-12 bottom-[15%] bg-white px-5 py-3 rounded-2xl shadow-xl border border-slate-100 items-center gap-2 z-20"
-          >
+          <motion.div animate={{ y: [-5, 15, -5] }} transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut" }} className="hidden lg:flex absolute -left-12 bottom-[15%] bg-white px-5 py-3 rounded-2xl shadow-xl border border-slate-100 items-center gap-2 z-20">
             <Sparkles size={20} className="text-amber-500" />
             <span className="font-bold text-slate-700 text-sm">Best Deals</span>
           </motion.div>
 
-          {/* Right Side Floaters */}
-          <motion.div 
-            animate={{ y: [15, -5, 15] }} transition={{ repeat: Infinity, duration: 4.2, ease: "easeInOut" }}
-            className="hidden lg:flex absolute -right-16 top-[15%] bg-white px-5 py-3 rounded-2xl shadow-xl border border-slate-100 items-center gap-2 z-20"
-          >
+          <motion.div animate={{ y: [15, -5, 15] }} transition={{ repeat: Infinity, duration: 4.2, ease: "easeInOut" }} className="hidden lg:flex absolute -right-16 top-[15%] bg-white px-5 py-3 rounded-2xl shadow-xl border border-slate-100 items-center gap-2 z-20">
             <Zap size={20} className="text-sky-500" />
             <span className="font-bold text-slate-700 text-sm">Zero Hassle</span>
           </motion.div>
 
-          <motion.div 
-            animate={{ y: [-15, 5, -15] }} transition={{ repeat: Infinity, duration: 4.8, ease: "easeInOut" }}
-            className="hidden lg:flex absolute -right-6 top-[50%] bg-white px-5 py-3 rounded-2xl shadow-xl border border-slate-100 items-center gap-2 z-20"
-          >
+          <motion.div animate={{ y: [-15, 5, -15] }} transition={{ repeat: Infinity, duration: 4.8, ease: "easeInOut" }} className="hidden lg:flex absolute -right-6 top-[50%] bg-white px-5 py-3 rounded-2xl shadow-xl border border-slate-100 items-center gap-2 z-20">
             <ShieldCheck size={20} className="text-[#635BFF]" />
             <span className="font-bold text-slate-700 text-sm">Secure Chat</span>
           </motion.div>
 
-          <motion.div 
-            animate={{ y: [5, -15, 5] }} transition={{ repeat: Infinity, duration: 3.8, ease: "easeInOut" }}
-            className="hidden lg:flex absolute -right-12 bottom-[15%] bg-white px-5 py-3 rounded-2xl shadow-xl border border-slate-100 items-center gap-2 z-20"
-          >
+          <motion.div animate={{ y: [5, -15, 5] }} transition={{ repeat: Infinity, duration: 3.8, ease: "easeInOut" }} className="hidden lg:flex absolute -right-12 bottom-[15%] bg-white px-5 py-3 rounded-2xl shadow-xl border border-slate-100 items-center gap-2 z-20">
             <Users size={20} className="text-emerald-500" />
             <span className="font-bold text-slate-700 text-sm">Trusted Community</span>
           </motion.div>
@@ -233,7 +251,7 @@ export default function TriozyLandingPagePro() {
           >
             <img 
               src={bannerImage} 
-              alt="Triozy Ecosystem" 
+              alt="Triozy ecosystem showing housing, flatmates and marketplace features" 
               className="w-full h-auto object-cover"
             />
           </motion.div>
@@ -252,8 +270,8 @@ export default function TriozyLandingPagePro() {
             <div className="w-16 h-16 bg-rose-500 text-white rounded-2xl flex items-center justify-center mb-6 shadow-md group-hover:scale-110 transition-transform">
               <Home size={32} />
             </div>
-            <h3 className="text-2xl font-bold mb-3 text-slate-900">Find Your Space</h3>
-            <p className="text-slate-600 mb-6 flex-grow leading-relaxed">Browse verified listings for PGs, flats, and rooms. Skip the endless searching and connect directly with trusted owners.</p>
+            <h3 className="text-2xl font-bold mb-3 text-slate-900">Find Rooms & PGs</h3>
+            <p className="text-slate-600 mb-6 flex-grow leading-relaxed">Browse verified listings for PGs, flats, and rooms for rent. Skip the endless searching and connect directly with trusted owners for broker free flats.</p>
             <span className="text-rose-500 font-bold flex items-center gap-2 group-hover:gap-3 transition-all">Explore Housing <ArrowRight size={18}/></span>
           </a>
 
@@ -261,7 +279,7 @@ export default function TriozyLandingPagePro() {
             <div className="w-16 h-16 bg-sky-500 text-white rounded-2xl flex items-center justify-center mb-6 shadow-md group-hover:scale-110 transition-transform">
               <Users size={32} />
             </div>
-            <h3 className="text-2xl font-bold mb-3 text-slate-900">Meet Your Match</h3>
+            <h3 className="text-2xl font-bold mb-3 text-slate-900">Find Flatmates Near You</h3>
             <p className="text-slate-600 mb-6 flex-grow leading-relaxed">Looking for a vibe check? Find compatible flatmates based on your lifestyle, habits, and preferences effortlessly.</p>
             <span className="text-sky-500 font-bold flex items-center gap-2 group-hover:gap-3 transition-all">Find Flatmates <ArrowRight size={18}/></span>
           </a>
@@ -270,8 +288,8 @@ export default function TriozyLandingPagePro() {
             <div className="w-16 h-16 bg-emerald-500 text-white rounded-2xl flex items-center justify-center mb-6 shadow-md group-hover:scale-110 transition-transform">
               <ShoppingBag size={32} />
             </div>
-            <h3 className="text-2xl font-bold mb-3 text-slate-900">Marketplace</h3>
-            <p className="text-slate-600 mb-6 flex-grow leading-relaxed">Buy and sell move-in essentials—from used furniture to appliances. Perfect for getting your new place set up affordably.</p>
+            <h3 className="text-2xl font-bold mb-3 text-slate-900">Buy Used Furniture</h3>
+            <p className="text-slate-600 mb-6 flex-grow leading-relaxed">Buy and sell move-in essentials locally—from used furniture to appliances. Perfect for getting your new place set up affordably.</p>
             <span className="text-emerald-500 font-bold flex items-center gap-2 group-hover:gap-3 transition-all">Shop Essentials <ArrowRight size={18}/></span>
           </a>
 
@@ -331,13 +349,13 @@ export default function TriozyLandingPagePro() {
           
           <div className="relative h-[650px] hidden md:block perspective-1000">
             <div className="absolute top-0 right-0 w-[260px] z-10 rotate-6 transition-transform hover:scale-105">
-              <img src={galleryImages[0]} className="w-full h-auto rounded-[2.5rem] border-[8px] border-white ring-1 ring-slate-800 shadow-2xl" alt="App UI 1" />
+              <img src={galleryImages[0]} className="w-full h-auto rounded-[2.5rem] border-[8px] border-white ring-1 ring-slate-800 shadow-2xl" alt="Triozy room rental search interface" />
             </div>
             <div className="absolute top-20 left-0 w-[260px] z-20 -rotate-3 transition-transform hover:scale-105">
-               <img src={galleryImages[1]} className="w-full h-auto rounded-[2.5rem] border-[8px] border-white ring-1 ring-slate-800 shadow-2xl" alt="App UI 2" />
+               <img src={galleryImages[1]} className="w-full h-auto rounded-[2.5rem] border-[8px] border-white ring-1 ring-slate-800 shadow-2xl" alt="Triozy secure flatmate chat screen" />
             </div>
             <div className="absolute bottom-[-60px] right-30 w-[260px] z-30 rotate-2 transition-transform hover:scale-105">
-               <img src={galleryImages[2]} className="w-full h-auto rounded-[2.5rem] border-[8px] border-white ring-1 ring-slate-800 shadow-2xl" alt="App UI 3" />
+               <img src={galleryImages[2]} className="w-full h-auto rounded-[2.5rem] border-[8px] border-white ring-1 ring-slate-800 shadow-2xl" alt="Triozy local marketplace for buying essentials" />
             </div>
           </div>
         </div>
@@ -359,7 +377,7 @@ export default function TriozyLandingPagePro() {
               <div className="rounded-[2.5rem] border-[12px] border-white shadow-2xl shadow-[#635BFF]/20 ring-1 ring-slate-200 overflow-hidden bg-white">
                 <img 
                   src={src} 
-                  alt={`Triozy Screen ${index + 1}`} 
+                  alt={`Triozy app screenshot highlighting app feature ${index + 1}`} 
                   className="w-full h-auto object-cover"
                 />
               </div>
@@ -445,7 +463,7 @@ export default function TriozyLandingPagePro() {
         </div>
       </section>
 
-      {/* 8. FOOTER */}
+      {/* 8. FOOTER WITH INTERNAL CITY LINKS */}
       <footer className="bg-[#2A2675] text-white pt-24 pb-12 relative overflow-hidden">
         <div className="absolute top-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#635BFF]/80 to-transparent"></div>
         
@@ -469,7 +487,7 @@ export default function TriozyLandingPagePro() {
             </a>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16 pt-12 border-t border-white/10">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-12 mb-16 pt-12 border-t border-white/10">
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center gap-3 mb-6">
                 <img src={logoUrl} alt="Triozy" className="w-12 h-12 rounded-xl shadow-lg border-2 border-white/10 object-cover" />
@@ -495,6 +513,17 @@ export default function TriozyLandingPagePro() {
                 <li><a href="#features" className="hover:text-white transition-colors">Find Flatmates</a></li>
                 <li><a href="#features" className="hover:text-white transition-colors">Marketplace</a></li>
                 <li><a href="#features" className="hover:text-white transition-colors">Maids & Tiffins</a></li>
+              </ul>
+            </div>
+
+            {/* Popular Cities Links Added for SEO Routing */}
+            <div>
+              <h4 className="text-lg font-bold mb-6 text-white">Popular Cities</h4>
+              <ul className="space-y-4 text-white/70 font-medium">
+                <li><a href={webAppLink} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Rooms in Bangalore</a></li>
+                <li><a href={webAppLink} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">PG in Pune</a></li>
+                <li><a href={webAppLink} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Flats in Mumbai</a></li>
+                <li><a href={webAppLink} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Rooms in Delhi</a></li>
               </ul>
             </div>
 
