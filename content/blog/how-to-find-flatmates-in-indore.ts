@@ -5,7 +5,7 @@ export const post: BlogPost = {
   title: "How to Find Flatmates in Indore (Compatible and Safe)",
   description: "A step-by-step guide to finding flatmates in Indore: compatibility questions, budget splits, safety checks, and how to set house rules early.",
   category: "Guides",
-  publishedAt: "2024-03-10",
+  publishedAt: "2026-05-20",
   updatedAt: "2026-05-20",
   heroImage: "/Main_SS.png",
   keywords: [

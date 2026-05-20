@@ -5,7 +5,7 @@ export const post: BlogPost = {
   title: "Safe Areas for Girls in Indore (Practical Locality Guide)",
   description: "A practical guide to choosing safe localities in Indore for girls: building-level checks, commute safety, society rules, and daily services nearby.",
   category: "Guides",
-  publishedAt: "2024-03-10",
+  publishedAt: "2026-05-20",
   updatedAt: "2026-05-20",
   heroImage: "/Main_SS.png",
   keywords: [

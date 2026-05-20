@@ -5,7 +5,7 @@ export const post: BlogPost = {
   title: "Best Tiffin Services in Indore (How to Choose and What to Expect)",
   description: "A no-fluff guide to finding reliable tiffin services in Indore: menus, pricing, hygiene checks, delivery timing, and how to avoid common issues.",
   category: "Guides",
-  publishedAt: "2024-03-10",
+  publishedAt: "2026-05-20",
   updatedAt: "2026-05-20",
   heroImage: "/Main_SS.png",
   keywords: [

@@ -5,7 +5,7 @@ export const post: BlogPost = {
   title: "Best Areas to Live in Indore (Students and Professionals)",
   description: "A practical locality-by-locality guide to choosing where to live in Indore based on budget, commute, safety, and lifestyle.",
   category: "Guides",
-  publishedAt: "2024-03-10",
+  publishedAt: "2026-05-20",
   updatedAt: "2026-05-20",
   heroImage: "/Main_SS.png",
   keywords: [

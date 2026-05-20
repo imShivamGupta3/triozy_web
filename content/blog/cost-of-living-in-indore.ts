@@ -5,7 +5,7 @@ export const costOfLivingInIndore: BlogPost = {
   title: "Cost of Living in Indore - Triozy Guide",
   description: "A practical breakdown of rent, food, transport, internet and student budgets in Indore.",
   category: "Guides",
-  publishedAt: "2024-03-10",
+  publishedAt: "2026-05-20",
   updatedAt: "2026-05-20",
   heroImage: "/Main_SS.png",
   keywords: [
