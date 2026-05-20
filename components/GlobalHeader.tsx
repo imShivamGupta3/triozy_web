@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const webAppLink = "https://app.triozy.com/";
-const logoUrl = "/triozy_logo.svg";
+const logoUrl = "/triozy_logo.png";
 
 export default function GlobalHeader() {
   return (

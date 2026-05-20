@@ -66,10 +66,16 @@ function SectionContent({ section }: { section: BlogSection }) {
 }
 
 export default function BlogLayout({ post }: { post: BlogPost }) {
-  const readingTime = Math.max(
-    1,
-    Math.ceil(post.sections.flatMap((section) => [...section.content, ...(section.items ?? [])]).join(' ').split(/\s+/).length / 200)
-  );
+  // Avoid `Array.prototype.flatMap` to reduce the need for legacy polyfills in client bundles.
+  let wordCount = 0;
+  for (const section of post.sections) {
+    const parts: string[] = [];
+    parts.push(...section.content);
+    if (section.items && section.items.length > 0) parts.push(...section.items);
+    if (parts.length === 0) continue;
+    wordCount += parts.join(' ').trim().split(/\s+/).filter(Boolean).length;
+  }
+  const readingTime = Math.max(1, Math.ceil(wordCount / 200));
 
   const metaParts: string[] = [];
   if (post.publishedAt) metaParts.push(`Published: ${formatDateLabel(post.publishedAt)}`);

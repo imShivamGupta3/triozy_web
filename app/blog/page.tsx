@@ -11,8 +11,8 @@ export default function BlogIndex() {
   const posts = getAllBlogPosts();
 
   return (
-    <main className="min-h-screen bg-[#f8fafc] text-slate-900 mt-16 pt-8 pb-16">
-      <section className="bg-gradient-to-b from-[#635BFF] to-[#8A78FF] text-white py-24 mb-16 rounded-b-[3rem]">
+    <main className="min-h-screen bg-[#f8fafc] text-slate-900 pb-16">
+      <section className="bg-gradient-to-b from-[#635BFF] to-[#8A78FF] text-white pb-24 pt-32 mb-16 rounded-b-[3rem]">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <p className="text-sm uppercase tracking-[0.3em] text-[#c1d4ff] mb-4">Triozy Blog</p>
           <h1 className="text-5xl font-extrabold mb-6">Guides, insights, and tips to move smarter.</h1>
@@ -46,7 +46,7 @@ export default function BlogIndex() {
                 <p className="text-slate-600 mb-4 flex-grow text-sm leading-relaxed">
                   {post.description}
                 </p>
-                <p className="text-xs text-slate-400 font-medium">
+                <p className="text-xs text-slate-600 font-medium">
                   {post.publishedAt ? new Date(post.publishedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'Recently updated'}
                 </p>
               </div>

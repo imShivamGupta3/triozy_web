@@ -17,7 +17,7 @@ export default function TriozyLandingPagePro() {
   const webAppLink = "https://app.triozy.com/";
   
   // Local Image Paths 
-  const logoUrl = "/triozy_logo.svg";
+  const logoUrl = "/triozy_logo.png";
   const heroImage = "/Main_SS.webp";
   const bannerImage = "/Banner.webp";
   const galleryImages = [
@@ -72,7 +72,7 @@ export default function TriozyLandingPagePro() {
         "@type": "Organization",
         "name": "Triozy",
         "url": "https://triozy.com",
-        "logo": "https://triozy.com/triozy_logo.svg",
+        "logo": "https://triozy.com/triozy_logo.png",
         "description": "Find broker-free flats, flatmates and local services",
         "sameAs": [
           "https://www.instagram.com/triozy.app/",

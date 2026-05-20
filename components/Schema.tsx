@@ -77,7 +77,7 @@ export default function Schema(props: SchemaProps) {
       "@type": "Organization",
       "name": "Triozy",
       "url": "https://triozy.com",
-      "logo": "https://triozy.com/triozy_logo.svg",
+      "logo": "https://triozy.com/triozy_logo.png",
     };
   } else if (props.type === 'BreadcrumbList') {
     schemaContent = {
