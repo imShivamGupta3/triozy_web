@@ -135,6 +135,8 @@ export default function TriozyLandingPagePro() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrgJSONLD) }}
       />
+
+      <main id="main-content">
       
       {/* 2. DYNAMIC HERO SECTION */}
       <section className="relative pt-24 pb-20 lg:pt-28 lg:pb-24 overflow-hidden bg-gradient-to-b from-[#f8fafc] to-[#F0EEFF]">
@@ -572,6 +574,8 @@ export default function TriozyLandingPagePro() {
         </div>
       </section>
 
+      </main>
+
       {/* 8. FOOTER WITH INTERNAL CITY LINKS */}
       <footer className="bg-[#2A2675] text-white pt-24 pb-12 relative overflow-hidden">
         <div className="absolute top-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#635BFF]/80 to-transparent"></div>
@@ -616,17 +620,31 @@ export default function TriozyLandingPagePro() {
                 Your smart moving network. Find housing, connect with flatmates, and discover maids, tiffins, and essentials - all in one flow.
               </p>
               <div className="flex gap-4">
-                <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/triozy.app/" className="w-10 h-10 rounded-full bg-white/10 border border-white/10 flex items-center justify-center hover:bg-[#635BFF] transition-colors">
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://www.instagram.com/triozy.app/"
+                  aria-label="Triozy on Instagram"
+                  className="w-10 h-10 rounded-full bg-white/10 border border-white/10 flex items-center justify-center hover:bg-[#635BFF] transition-colors"
+                >
+                  <span className="sr-only">Instagram</span>
                   <FaInstagram size={18} />
                 </a>
-                <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/triozy/" className="w-10 h-10 rounded-full bg-white/10 border border-white/10 flex items-center justify-center hover:bg-[#635BFF] transition-colors">
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://www.linkedin.com/company/triozy/"
+                  aria-label="Triozy on LinkedIn"
+                  className="w-10 h-10 rounded-full bg-white/10 border border-white/10 flex items-center justify-center hover:bg-[#635BFF] transition-colors"
+                >
+                  <span className="sr-only">LinkedIn</span>
                   <FaLinkedin size={18} />
                 </a>
               </div>
             </div>
 
             <div>
-              <h4 className="text-lg font-bold mb-6 text-white">Platform</h4>
+              <h3 className="text-lg font-bold mb-6 text-white">Platform</h3>
               <ul className="space-y-4 text-white/70 font-medium">
                 <li><a href="#features" className="hover:text-white transition-colors">Find a PG/Room</a></li>
                 <li><a href="#features" className="hover:text-white transition-colors">Find Flatmates</a></li>
@@ -637,7 +655,7 @@ export default function TriozyLandingPagePro() {
 
             {/* Popular Cities Links Added for SEO Routing */}
             <div>
-              <h4 className="text-lg font-bold mb-6 text-white">Popular Cities</h4>
+              <h3 className="text-lg font-bold mb-6 text-white">Popular Cities</h3>
               <ul className="space-y-4 text-white/70 font-medium">
                 <li><a href={webAppLink} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Rooms in Bangalore</a></li>
                 <li><a href={webAppLink} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">PG in Pune</a></li>
@@ -647,7 +665,7 @@ export default function TriozyLandingPagePro() {
             </div>
 
             <div>
-              <h4 className="text-lg font-bold mb-6 text-white">Support & Legal</h4>
+              <h3 className="text-lg font-bold mb-6 text-white">Support & Legal</h3>
               <ul className="space-y-4 text-white/70 font-medium">
                 <li>
                   <a href="mailto:triozyapp@gmail.com" className="flex items-center gap-2 hover:text-white transition-colors">
