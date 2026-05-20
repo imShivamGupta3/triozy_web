@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { 
@@ -18,7 +17,7 @@ export default function TriozyLandingPagePro() {
   const webAppLink = "https://app.triozy.com/";
   
   // Local Image Paths 
-  const logoUrl = "/triozy_logo.png";
+  const logoUrl = "/triozy_logo.svg";
   const heroImage = "/Main_SS.webp";
   const bannerImage = "/Banner.webp";
   const galleryImages = [
@@ -73,7 +72,7 @@ export default function TriozyLandingPagePro() {
         "@type": "Organization",
         "name": "Triozy",
         "url": "https://triozy.com",
-        "logo": "https://triozy.com/triozy_logo.png",
+        "logo": "https://triozy.com/triozy_logo.svg",
         "description": "Find broker-free flats, flatmates and local services",
         "sameAs": [
           "https://www.instagram.com/triozy.app/",
@@ -143,14 +142,10 @@ export default function TriozyLandingPagePro() {
         
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-16 items-center relative z-10">
           <div className="lg:col-span-7">
-            <motion.div 
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-[#635BFF] font-bold text-sm mb-6 shadow-sm border border-[#635BFF]/20"
-            >
+            <div className="triozy-animate-fade-in inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-[#635BFF] font-bold text-sm mb-6 shadow-sm border border-[#635BFF]/20">
               <ShieldCheck size={16} />
               <span>Broker Free Flats & PGs</span>
-            </motion.div>
+            </div>
             
             {/* SEO Optimized H1 Header */}
             <h1 className="text-5xl lg:text-7xl font-extrabold tracking-tight mb-8 leading-[1.1] text-slate-900">
@@ -166,12 +161,7 @@ export default function TriozyLandingPagePro() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
-              <a 
-                href={playStoreLink} 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block"
-              >
+              <Link href={playStoreLink} target="_blank" rel="noopener noreferrer" aria-label="Download Triozy from Google Play" className="inline-block">
                 <Image 
                   src="/playstore_icon.png" 
                   alt="Download Triozy App on Google Play" 
@@ -179,7 +169,7 @@ export default function TriozyLandingPagePro() {
                   height={45}
                   className="h-20 sm:h-24 w-auto hover:scale-[1.02] transition-transform drop-shadow-md"
                 />
-              </a>
+              </Link>
             </div>
 
             <div className="flex items-center gap-4 text-sm text-slate-600 font-medium">
@@ -194,12 +184,7 @@ export default function TriozyLandingPagePro() {
 
           <div className="lg:col-span-5 relative mx-auto w-full max-w-[320px] lg:max-w-none perspective-1000">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-[#635BFF]/20 blur-3xl rounded-full animate-pulse"></div>
-            <motion.div 
-              initial={{ opacity: 0, rotateY: 15, x: 50 }}
-              animate={{ opacity: 1, rotateY: 0, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="lg:w-[320px] lg:ml-auto relative z-10"
-            >
+            <div className="triozy-animate-phone-in lg:w-[320px] lg:ml-auto relative z-10">
               <Image 
                 src={heroImage} 
                 alt="Triozy App interface for finding rooms for rent and flatmates" 
@@ -212,20 +197,16 @@ export default function TriozyLandingPagePro() {
                 className="w-full h-auto rounded-[2.5rem] border-[8px] border-white shadow-[0_30px_60px_rgba(99,91,255,0.2)] ring-1 ring-slate-100"
                 decoding="async" 
               />
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* INFINITE TICKER */}
       <div className="border-y border-[#635BFF]/10 bg-white py-4 overflow-hidden flex whitespace-nowrap">
-        <motion.div 
-          animate={{ x: [0, -1000] }} 
-          transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
-          className="flex gap-12 items-center text-[#635BFF]/40 font-bold text-xl uppercase tracking-widest"
-        >
-          <span>Rooms for Rent</span> • <span>Find Flatmates Near Me</span> • <span>Buy Used Furniture</span> • <span>Home Appliances</span> • <span>Tiffin Services</span> • <span>PG Near Me</span> • <span>Broker Free Flats</span> • <span>Find Flatmates</span>
-        </motion.div>
+        <div className="triozy-ticker-track flex gap-12 items-center text-[#2A2675] font-bold text-xl uppercase tracking-widest">
+          <span>Rooms for Rent</span> <span aria-hidden="true">&bull;</span> <span>Find Flatmates Near Me</span> <span aria-hidden="true">&bull;</span> <span>Buy Used Furniture</span> <span aria-hidden="true">&bull;</span> <span>Home Appliances</span> <span aria-hidden="true">&bull;</span> <span>Tiffin Services</span> <span aria-hidden="true">&bull;</span> <span>PG Near Me</span> <span aria-hidden="true">&bull;</span> <span>Broker Free Flats</span> <span aria-hidden="true">&bull;</span> <span>Find Flatmates</span>
+        </div>
       </div>
 
       {/* 3. BANNER SECTION - With 6 Floating Badges */}
@@ -235,42 +216,37 @@ export default function TriozyLandingPagePro() {
 
         <div className="max-w-7xl mx-auto px-6 relative">
           
-          <motion.div animate={{ y: [-10, 10, -10] }} transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }} className="hidden lg:flex absolute -left-16 top-[15%] bg-white px-5 py-3 rounded-2xl shadow-xl border border-slate-100 items-center gap-2 z-20">
+          <div className="triozy-float-1 hidden lg:flex absolute -left-16 top-[15%] bg-white px-5 py-3 rounded-2xl shadow-xl border border-slate-100 items-center gap-2 z-20">
             <CheckCircle2 size={20} className="text-green-500" />
             <span className="font-bold text-slate-700 text-sm">100% Verified</span>
-          </motion.div>
+          </div>
 
-          <motion.div animate={{ y: [10, -10, 10] }} transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }} className="hidden lg:flex absolute -left-4 top-[50%] bg-white px-5 py-3 rounded-2xl shadow-xl border border-slate-100 items-center gap-2 z-20">
-            <HeartHandshake size={20} className="text-rose-500" />
+          <div className="triozy-float-2 hidden lg:flex absolute -left-4 top-[50%] bg-white px-5 py-3 rounded-2xl shadow-xl border border-slate-100 items-center gap-2 z-20">
+            <HeartHandshake size={20} className="text-rose-700" />
             <span className="font-bold text-slate-700 text-sm">Connect with Ease</span>
-          </motion.div>
+          </div>
 
-          <motion.div animate={{ y: [-5, 15, -5] }} transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut" }} className="hidden lg:flex absolute -left-12 bottom-[15%] bg-white px-5 py-3 rounded-2xl shadow-xl border border-slate-100 items-center gap-2 z-20">
-            <Sparkles size={20} className="text-amber-500" />
+          <div className="triozy-float-3 hidden lg:flex absolute -left-12 bottom-[15%] bg-white px-5 py-3 rounded-2xl shadow-xl border border-slate-100 items-center gap-2 z-20">
+            <Sparkles size={20} className="text-amber-700" />
             <span className="font-bold text-slate-700 text-sm">Best Deals</span>
-          </motion.div>
+          </div>
 
-          <motion.div animate={{ y: [15, -5, 15] }} transition={{ repeat: Infinity, duration: 4.2, ease: "easeInOut" }} className="hidden lg:flex absolute -right-16 top-[15%] bg-white px-5 py-3 rounded-2xl shadow-xl border border-slate-100 items-center gap-2 z-20">
-            <Zap size={20} className="text-sky-500" />
+          <div className="triozy-float-4 hidden lg:flex absolute -right-16 top-[15%] bg-white px-5 py-3 rounded-2xl shadow-xl border border-slate-100 items-center gap-2 z-20">
+            <Zap size={20} className="text-sky-700" />
             <span className="font-bold text-slate-700 text-sm">Zero Hassle</span>
-          </motion.div>
+          </div>
 
-          <motion.div animate={{ y: [-15, 5, -15] }} transition={{ repeat: Infinity, duration: 4.8, ease: "easeInOut" }} className="hidden lg:flex absolute -right-6 top-[50%] bg-white px-5 py-3 rounded-2xl shadow-xl border border-slate-100 items-center gap-2 z-20">
+          <div className="triozy-float-5 hidden lg:flex absolute -right-6 top-[50%] bg-white px-5 py-3 rounded-2xl shadow-xl border border-slate-100 items-center gap-2 z-20">
             <ShieldCheck size={20} className="text-[#635BFF]" />
             <span className="font-bold text-slate-700 text-sm">Secure Chat</span>
-          </motion.div>
+          </div>
 
-          <motion.div animate={{ y: [5, -15, 5] }} transition={{ repeat: Infinity, duration: 3.8, ease: "easeInOut" }} className="hidden lg:flex absolute -right-12 bottom-[15%] bg-white px-5 py-3 rounded-2xl shadow-xl border border-slate-100 items-center gap-2 z-20">
-            <Users size={20} className="text-emerald-500" />
+          <div className="triozy-float-6 hidden lg:flex absolute -right-12 bottom-[15%] bg-white px-5 py-3 rounded-2xl shadow-xl border border-slate-100 items-center gap-2 z-20">
+            <Users size={20} className="text-emerald-700" />
             <span className="font-bold text-slate-700 text-sm">Trusted Community</span>
-          </motion.div>
+          </div>
 
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="rounded-[2.5rem] overflow-hidden shadow-[0_20px_60px_rgba(99,91,255,0.15)] bg-white border-[10px] border-white ring-1 ring-slate-100 mx-auto max-w-5xl relative z-10"
-          >
+          <div className="rounded-[2.5rem] overflow-hidden shadow-[0_20px_60px_rgba(99,91,255,0.15)] bg-white border-[10px] border-white ring-1 ring-slate-100 mx-auto max-w-5xl relative z-10">
             <Image 
               src={bannerImage} 
               alt="Triozy ecosystem showing housing, flatmates and marketplace features" 
@@ -278,7 +254,7 @@ export default function TriozyLandingPagePro() {
               height={500}
               className="w-full h-auto object-cover"
             />
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -296,7 +272,7 @@ export default function TriozyLandingPagePro() {
             </div>
             <h3 className="text-2xl font-bold mb-3 text-slate-900">Find Rooms & PGs</h3>
             <p className="text-slate-600 mb-6 flex-grow leading-relaxed">Browse verified listings for PGs, flats, and rooms for rent. Skip the endless searching and connect directly with trusted owners for broker free flats.</p>
-            <span className="text-rose-500 font-bold flex items-center gap-2 group-hover:gap-3 transition-all">Explore Housing <ArrowRight size={18}/></span>
+            <span className="text-rose-700 font-bold flex items-center gap-2 group-hover:gap-3 transition-all">Explore Housing <ArrowRight size={18}/></span>
           </a>
 
           <a href={webAppLink} target="_blank" rel="noopener noreferrer" className="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 flex flex-col items-start hover:shadow-xl hover:border-sky-100 transition-all duration-300 group cursor-pointer block">
@@ -305,7 +281,7 @@ export default function TriozyLandingPagePro() {
             </div>
             <h3 className="text-2xl font-bold mb-3 text-slate-900">Find Flatmates Near You</h3>
             <p className="text-slate-600 mb-6 flex-grow leading-relaxed">Looking for a vibe check? Find compatible flatmates based on your lifestyle, habits, and preferences effortlessly.</p>
-            <span className="text-sky-500 font-bold flex items-center gap-2 group-hover:gap-3 transition-all">Find Flatmates <ArrowRight size={18}/></span>
+            <span className="text-sky-700 font-bold flex items-center gap-2 group-hover:gap-3 transition-all">Find Flatmates <ArrowRight size={18}/></span>
           </a>
 
           <a href={webAppLink} target="_blank" rel="noopener noreferrer" className="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 flex flex-col items-start hover:shadow-xl hover:border-emerald-100 transition-all duration-300 group cursor-pointer block">
@@ -313,8 +289,8 @@ export default function TriozyLandingPagePro() {
               <ShoppingBag size={32} />
             </div>
             <h3 className="text-2xl font-bold mb-3 text-slate-900">Buy Used Furniture</h3>
-            <p className="text-slate-600 mb-6 flex-grow leading-relaxed">Buy and sell move-in essentials locally—from used furniture to appliances. Perfect for getting your new place set up affordably.</p>
-            <span className="text-emerald-500 font-bold flex items-center gap-2 group-hover:gap-3 transition-all">Shop Essentials <ArrowRight size={18}/></span>
+            <p className="text-slate-600 mb-6 flex-grow leading-relaxed">Buy and sell move-in essentials locally, from used furniture to appliances. Perfect for getting your new place set up affordably.</p>
+            <span className="text-emerald-700 font-bold flex items-center gap-2 group-hover:gap-3 transition-all">Shop Essentials <ArrowRight size={18}/></span>
           </a>
 
           <a href={webAppLink} target="_blank" rel="noopener noreferrer" className="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 flex flex-col items-start hover:shadow-xl hover:border-amber-100 transition-all duration-300 group cursor-pointer block">
@@ -323,7 +299,7 @@ export default function TriozyLandingPagePro() {
             </div>
             <h3 className="text-2xl font-bold mb-3 text-slate-900">Daily Services</h3>
             <p className="text-slate-600 mb-6 flex-grow leading-relaxed">Settling in means eating well and keeping it clean. Discover and connect with trusted local maids, tiffins, and home services.</p>
-            <span className="text-amber-500 font-bold flex items-center gap-2 group-hover:gap-3 transition-all">Find Services <ArrowRight size={18}/></span>
+            <span className="text-amber-700 font-bold flex items-center gap-2 group-hover:gap-3 transition-all">Find Services <ArrowRight size={18}/></span>
           </a>
         </div>
       </section>
@@ -334,7 +310,7 @@ export default function TriozyLandingPagePro() {
           
           <div>
             <h2 className="text-3xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
-              <MapPin className="text-rose-500" /> Neighborhood Guides
+              <MapPin className="text-rose-700" /> Neighborhood Guides
             </h2>
             <div className="flex flex-col gap-4 text-lg text-[#635BFF] font-semibold">
               <Link href="/indore/vijay-nagar" className="hover:underline transition-all">Vijay Nagar Guide</Link>
@@ -347,7 +323,7 @@ export default function TriozyLandingPagePro() {
 
           <div>
             <h2 className="text-3xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
-              <Search className="text-sky-500" /> Popular Searches
+              <Search className="text-sky-700" /> Popular Searches
             </h2>
             <div className="flex flex-col gap-4 text-lg text-slate-700 font-semibold">
               <Link href="/blog/how-to-find-maids-in-indore" className="hover:text-[#635BFF] transition-all">How to Find Maids</Link>
@@ -457,11 +433,14 @@ export default function TriozyLandingPagePro() {
             <div className="space-y-4">
               {faqs.slice(0, 4).map((faq, index) => (
                 <div 
-                  key={index} 
+                  key={faq.question} 
                   className="border border-[#635BFF]/10 rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-md transition-all duration-300"
                 >
                   <button 
                     onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                    id={`faq-button-${index}`}
+                    aria-expanded={openFaq === index}
+                    aria-controls={`faq-panel-${index}`}
                     className="w-full px-6 py-6 flex items-start justify-between bg-white text-left"
                   >
                     <span className="font-bold text-lg text-[#635BFF] pr-4">{faq.question}</span>
@@ -469,18 +448,20 @@ export default function TriozyLandingPagePro() {
                       className={`text-slate-400 transition-transform duration-300 flex-shrink-0 mt-1 ${openFaq === index ? "rotate-180" : ""}`} 
                     />
                   </button>
-                  <AnimatePresence>
-                    {openFaq === index && (
-                      <motion.div 
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        className="px-6 pb-6 text-slate-600 leading-relaxed"
-                      >
-                        {faq.answer}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  <div
+                    id={`faq-panel-${index}`}
+                    role="region"
+                    aria-labelledby={`faq-button-${index}`}
+                    className="overflow-hidden transition-[max-height,opacity] duration-300"
+                    style={{
+                      maxHeight: openFaq === index ? "2000px" : "0px",
+                      opacity: openFaq === index ? 1 : 0,
+                    }}
+                  >
+                    <div className="px-6 pb-6 text-slate-600 leading-relaxed">
+                      {faq.answer}
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -490,11 +471,14 @@ export default function TriozyLandingPagePro() {
                 const globalIndex = idx + 4;
                 return (
                   <div 
-                    key={globalIndex} 
+                    key={faq.question} 
                     className="border border-[#635BFF]/10 rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-md transition-all duration-300"
                   >
                     <button 
                       onClick={() => setOpenFaq(openFaq === globalIndex ? null : globalIndex)}
+                      id={`faq-button-${globalIndex}`}
+                      aria-expanded={openFaq === globalIndex}
+                      aria-controls={`faq-panel-${globalIndex}`}
                       className="w-full px-6 py-6 flex items-start justify-between bg-white text-left"
                     >
                       <span className="font-bold text-lg text-[#635BFF] pr-4">{faq.question}</span>
@@ -502,18 +486,20 @@ export default function TriozyLandingPagePro() {
                         className={`text-slate-400 transition-transform duration-300 flex-shrink-0 mt-1 ${openFaq === globalIndex ? "rotate-180" : ""}`} 
                       />
                     </button>
-                    <AnimatePresence>
-                      {openFaq === globalIndex && (
-                        <motion.div 
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          className="px-6 pb-6 text-slate-600 leading-relaxed"
-                        >
-                          {faq.answer}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+                    <div
+                      id={`faq-panel-${globalIndex}`}
+                      role="region"
+                      aria-labelledby={`faq-button-${globalIndex}`}
+                      className="overflow-hidden transition-[max-height,opacity] duration-300"
+                      style={{
+                        maxHeight: openFaq === globalIndex ? "2000px" : "0px",
+                        opacity: openFaq === globalIndex ? 1 : 0,
+                      }}
+                    >
+                      <div className="px-6 pb-6 text-slate-600 leading-relaxed">
+                        {faq.answer}
+                      </div>
+                    </div>
                   </div>
                 );
               })}
@@ -675,7 +661,7 @@ export default function TriozyLandingPagePro() {
           </div>
 
           <div className="pt-8 border-t border-white/10 text-center flex flex-col sm:flex-row justify-between items-center gap-4">
-             <p className="text-white/50 text-sm font-medium">© 2026 Triozy. Built for modern city moves.</p>
+             <p className="text-white/70 text-sm font-medium">Copyright 2026 Triozy. Built for modern city moves.</p>
           </div>
         </div>
       </footer>

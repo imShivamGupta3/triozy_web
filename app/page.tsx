@@ -4,7 +4,7 @@ export const metadata = {
   metadataBase: new URL("https://triozy.com"),
 
   title: {
-    default: "Triozy – Find Broker-Free Flats, Flatmates & Local Services",
+    default: "Triozy - Find Broker-Free Flats, Flatmates & Local Services",
     template: "%s | Triozy",
   },
 
@@ -44,7 +44,7 @@ export const metadata = {
   category: "Housing and Local Services",
 
   openGraph: {
-    title: "Triozy – Find Broker-Free Flats, Flatmates & Local Services",
+    title: "Triozy - Find Broker-Free Flats, Flatmates & Local Services",
     description: "Discover broker-free flats, PGs, flatmates, maids, tiffin services and local marketplace listings.",
     url: "https://triozy.com",
     siteName: "Triozy",
@@ -52,7 +52,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.png",
+        url: "/Banner.webp",
         width: 1200,
         height: 630,
         alt: "Triozy",
@@ -62,9 +62,9 @@ export const metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Triozy – Find Broker-Free Flats, Flatmates & Local Services",
+    title: "Triozy - Find Broker-Free Flats, Flatmates & Local Services",
     description: "Discover broker-free flats, PGs, flatmates, maids and local services.",
-    images: ["/og-image.png"],
+    images: ["/Banner.webp"],
   },
 };
 

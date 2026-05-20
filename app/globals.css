@@ -3,9 +3,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
 
-@theme inline {
+  /* Keep these aliases as plain CSS vars so editors that don't understand
+     Tailwind v4 theme vars won't warn, without changing runtime. */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -23,4 +23,77 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes triozyFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes triozyPhoneIn {
+  from {
+    opacity: 0;
+    transform: translateX(50px) rotateY(15deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotateY(0);
+  }
+}
+
+@keyframes triozyFloat {
+  0%,
+  100% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes triozyTicker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.triozy-animate-fade-in {
+  animation: triozyFadeInUp 0.6s ease-out both;
+}
+
+.triozy-animate-phone-in {
+  animation: triozyPhoneIn 0.8s ease-out both;
+}
+
+.triozy-float-1 {
+  animation: triozyFloat 4s ease-in-out infinite;
+}
+.triozy-float-2 {
+  animation: triozyFloat 5s ease-in-out infinite;
+}
+.triozy-float-3 {
+  animation: triozyFloat 4.5s ease-in-out infinite;
+}
+.triozy-float-4 {
+  animation: triozyFloat 4.2s ease-in-out infinite;
+}
+.triozy-float-5 {
+  animation: triozyFloat 4.8s ease-in-out infinite;
+}
+.triozy-float-6 {
+  animation: triozyFloat 3.8s ease-in-out infinite;
+}
+
+.triozy-ticker-track {
+  width: max-content;
+  animation: triozyTicker 30s linear infinite;
 }
