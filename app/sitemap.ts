@@ -17,8 +17,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const cityPages = allCities.map((city) => ({
     url: `${baseUrl}/${city.slug}`,
     lastModified: currentDate,
-    changeFrequency: 'monthly' as const,
-    priority: 0.75,
+    changeFrequency: 'weekly' as const,
+    priority: 0.85,
   }));
 
   const localityPages = allLocalities.map((locality) => ({

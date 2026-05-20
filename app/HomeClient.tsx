@@ -173,6 +173,15 @@ export default function TriozyLandingPagePro() {
                   className="h-20 sm:h-24 w-auto hover:scale-[1.02] transition-transform drop-shadow-md"
                 />
               </Link>
+              <Link
+                href="/indore"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#635BFF]/25 bg-white px-6 py-4 text-base font-bold text-slate-900 shadow-sm hover:shadow-md transition-shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-[#635BFF]/50"
+                aria-label="Explore Indore city page on Triozy"
+              >
+                <MapPin size={18} className="text-[#635BFF]" />
+                Explore Indore
+                <ArrowRight size={18} className="text-slate-600" />
+              </Link>
             </div>
 
             <div className="flex items-center gap-4 text-sm text-slate-600 font-medium">
@@ -664,10 +673,10 @@ export default function TriozyLandingPagePro() {
             <div>
               <h3 className="text-lg font-bold mb-6 text-white">Popular Cities</h3>
               <ul className="space-y-4 text-white/70 font-medium">
-                <li><a href={webAppLink} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Rooms in Bangalore</a></li>
-                <li><a href={webAppLink} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">PG in Pune</a></li>
-                <li><a href={webAppLink} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Flats in Mumbai</a></li>
-                <li><a href={webAppLink} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Rooms in Delhi</a></li>
+                <li><Link href="/indore" className="hover:text-white transition-colors">Rooms in Indore</Link></li>
+                <li><Link href="/bangalore" className="hover:text-white transition-colors">Rooms in Bangalore</Link></li>
+                <li><Link href="/pune" className="hover:text-white transition-colors">PG in Pune</Link></li>
+                <li><Link href="/delhi" className="hover:text-white transition-colors">Rooms in Delhi</Link></li>
               </ul>
             </div>
 

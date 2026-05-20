@@ -59,6 +59,16 @@ export default function BlogIndex() {
           <div className="max-w-2xl mx-auto">
             <ContentSearchBar items={searchItems} />
           </div>
+
+          <div className="mt-6 flex items-center justify-center">
+            <Link
+              href="/indore"
+              className="inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-2 text-sm font-semibold text-white ring-1 ring-white/25 hover:bg-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+            >
+              Explore Indore areas
+              <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </div>
       </section>
 
