@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { 
   ArrowLeft, Mail
 } from "lucide-react";
@@ -17,12 +19,12 @@ export default function TermsOfService() {
       <nav className="fixed w-full top-0 z-50 bg-[#EAE8FF]/90 backdrop-blur-xl border-b border-[#635BFF]/15 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-6">
-            <a href="/" className="group flex items-center gap-2 text-slate-600 hover:text-[#635BFF] transition-colors font-bold text-sm bg-white/50 px-3 py-1.5 rounded-full border border-slate-200">
+            <Link href="/" className="group flex items-center gap-2 text-slate-600 hover:text-[#635BFF] transition-colors font-bold text-sm bg-white/50 px-3 py-1.5 rounded-full border border-slate-200">
               <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
               <span>Back</span>
-            </a>
+            </Link>
             <div className="flex items-center gap-3">
-              <img src={logoUrl} alt="Triozy Logo" className="w-10 h-10 rounded-xl shadow-sm object-cover" />
+              <Image src={logoUrl} alt="Triozy Logo" width={40} height={40} className="w-10 h-10 rounded-xl shadow-sm object-cover" />
               <span className="text-2xl font-extrabold tracking-tight text-[#635BFF]">Triozy</span>
             </div>
           </div>
@@ -54,7 +56,7 @@ export default function TermsOfService() {
                 Acceptance of Terms
               </h2>
               <p>
-                By downloading, accessing, or using the Triozy mobile application and website (collectively, the "Platform"), you explicitly agree to be bound by these Terms of Service. If you do not agree to all of the terms and conditions outlined here, you must immediately discontinue your use of the Platform.
+                By downloading, accessing, or using the Triozy mobile application and website (collectively, the &quot;Platform&quot;), you explicitly agree to be bound by these Terms of Service. If you do not agree to all of the terms and conditions outlined here, you must immediately discontinue your use of the Platform.
               </p>
             </section>
 
@@ -119,7 +121,7 @@ export default function TermsOfService() {
                 Limitation of Liability & Termination
               </h2>
               <p className="mb-4">
-                Triozy is provided on an "AS IS" and "AS AVAILABLE" basis. To the maximum extent permitted by law, Triozy shall not be liable for any indirect, incidental, or consequential damages resulting from your use of the Platform or interactions with other users.
+                Triozy is provided on an &quot;AS IS&quot; and &quot;AS AVAILABLE&quot; basis. To the maximum extent permitted by law, Triozy shall not be liable for any indirect, incidental, or consequential damages resulting from your use of the Platform or interactions with other users.
               </p>
               <p>
                 We reserve the right to suspend or terminate your account immediately, without prior notice, if you breach these Terms or engage in fraudulent activity.
@@ -153,9 +155,11 @@ export default function TermsOfService() {
               rel="noopener noreferrer"
               className="inline-block"
             >
-              <img 
-                src="/playstore_icon.png" 
-                alt="Get it on Google Play" 
+              <Image
+                src="/playstore_icon.png"
+                alt="Get it on Google Play"
+                width={646}
+                height={250}
                 className="h-20 sm:h-24 w-auto hover:scale-[1.02] transition-transform shadow-2xl"
               />
             </a>
@@ -164,7 +168,7 @@ export default function TermsOfService() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16 pt-12 border-t border-white/10">
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center gap-3 mb-6">
-                <img src={logoUrl} alt="Triozy" className="w-12 h-12 rounded-xl shadow-lg border-2 border-white/10 object-cover" />
+                <Image src={logoUrl} alt="Triozy" width={48} height={48} className="w-12 h-12 rounded-xl shadow-lg border-2 border-white/10 object-cover" />
                 <span className="text-2xl font-extrabold tracking-tight text-white">Triozy</span>
               </div>
               <p className="text-white/70 mb-6 max-w-sm leading-relaxed">
@@ -183,10 +187,10 @@ export default function TermsOfService() {
             <div>
               <h4 className="text-lg font-bold mb-6 text-white">Platform</h4>
               <ul className="space-y-4 text-white/70 font-medium">
-                <li><a href="/#features" className="hover:text-white transition-colors">Find a PG/Room</a></li>
-                <li><a href="/#features" className="hover:text-white transition-colors">Find Flatmates</a></li>
-                <li><a href="/#features" className="hover:text-white transition-colors">Marketplace</a></li>
-                <li><a href="/#features" className="hover:text-white transition-colors">Maids & Tiffins</a></li>
+                <li><Link href="/#features" className="hover:text-white transition-colors">Find a PG/Room</Link></li>
+                <li><Link href="/#features" className="hover:text-white transition-colors">Find Flatmates</Link></li>
+                <li><Link href="/#features" className="hover:text-white transition-colors">Marketplace</Link></li>
+                <li><Link href="/#features" className="hover:text-white transition-colors">Maids & Tiffins</Link></li>
               </ul>
             </div>
 
@@ -198,8 +202,8 @@ export default function TermsOfService() {
                     <Mail size={16} /> triozyapp@gmail.com
                   </a>
                 </li>
-                <li><a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a></li>
-                <li><a href="/terms" className="hover:text-white transition-colors">Terms of Service</a></li>
+                <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+                <li><Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
               </ul>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import GlobalHeader from "../components/GlobalHeader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,6 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://triozy.com"),
   title: "Triozy: Verified PGs, Flatmate Finder & Marketplace App",
   description: "Find verified rooms, PGs, trusted flatmates & daily essentials like used furniture in one app. Triozy streamlines city relocation with secure chat and zero broker hassle.",
   keywords: "Find flatmates near me, Best PG app, Buy used furniture locally, rooms for rent, broker free flats, student housing, PG near me, Triozy App",
@@ -50,7 +52,10 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <GlobalHeader />
+        {children}
+      </body>
     </html>
   );
 }

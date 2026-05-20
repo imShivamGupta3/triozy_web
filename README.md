@@ -1,36 +1,154 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Triozy Web
+
+A Next.js App Router landing page for Triozy, built with React 19, Tailwind CSS v4, and interactive client-side UI powered by Framer Motion.
+
+## Project Structure
+
+```text
+triozy_web/
+├── .vscode/
+│   └── settings.json
+├── app/
+│   ├── [city]/
+│   │   └── [locality]/
+│   │       └── page.tsx
+│   ├── about/
+│   │   └── page.tsx
+│   ├── blog/
+│   │   ├── [slug]/
+│   │   │   └── page.tsx
+│   │   └── page.tsx
+│   ├── contact/
+│   │   └── page.tsx
+│   ├── privacy/
+│   │   └── page.tsx
+│   ├── terms/
+│   │   └── page.tsx
+│   ├── apple-icon.png
+│   ├── globals.css
+│   ├── HomeClient.tsx
+│   ├── icon.png
+│   ├── layout.tsx
+│   ├── loading.tsx
+│   ├── not-found.tsx
+│   ├── page.tsx
+│   ├── robots.ts
+│   └── sitemap.ts
+├── components/
+│   ├── BlogLayout.tsx
+│   ├── CTASection.tsx
+│   ├── FAQSection.tsx
+│   ├── GlobalHeader.tsx
+│   ├── LocalityPage.tsx
+│   ├── RelatedArticles.tsx
+│   └── TOC.tsx
+├── content/
+│   ├── blog/
+│   │   ├── best-areas-to-live-in-indore.ts
+│   │   ├── best-tiffin-services-in-indore.ts
+│   │   ├── buy-and-sell-used-furniture-in-indore.ts
+│   │   ├── common-rental-scams-in-indore.ts
+│   │   ├── cost-of-living-in-indore.ts
+│   │   ├── how-to-find-broker-free-pgs-in-indore.ts
+│   │   ├── how-to-find-flatmates-in-indore.ts
+│   │   ├── how-to-find-maids-in-indore.ts
+│   │   ├── index.ts
+│   │   ├── safe-areas-for-girls-in-indore.ts
+│   │   ├── student-housing-guide-indore.ts
+│   │   └── types.ts
+│   └── locality/
+│       ├── bhawarkuan.ts
+│       ├── index.ts
+│       ├── scheme-54.ts
+│       ├── super-corridor.ts
+│       ├── types.ts
+│       └── vijay-nagar.ts
+├── public/
+│   ├── Banner.png
+│   ├── Main_SS.png
+│   ├── SS_2.png
+│   ├── SS_3.png
+│   ├── SS_4.png
+│   ├── SS_5.png
+│   ├── SS_6.png
+│   ├── SS_7.png
+│   ├── playstore_icon.png
+│   └── triozy_logo.png
+├── .gitignore
+├── AGENTS.md
+├── CLAUDE.md
+├── eslint.config.mjs
+├── next-env.d.ts
+├── next.config.ts
+├── package-lock.json
+├── package.json
+├── postcss.config.mjs
+├── README.md
+├── tsconfig.json
+└── tsconfig.tsbuildinfo
+```
+
+## Key Features
+
+- Next.js App Router with server and client components
+- Global `metadata` configuration and Open Graph / Twitter metadata
+- Client-side animations using `framer-motion`
+- Sticky header with scroll hide/show behavior
+- `next/image` optimization for local static images
+- Tailwind CSS v4 styling and responsive design
+- Structured JSON-LD schema markup injected on the homepage
+- Local landing pages and blog content for Indore-focused services
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run dev` — Start the Next.js development server
+- `npm run build` — Create a production build
+- `npm run start` — Start the production server after build
+- `npm run lint` — Run ESLint
+
+## Important Files
+
+- `app/layout.tsx` — Application root layout, fonts, `metadata`, and global page structure
+- `app/page.tsx` — Homepage server component wrapper with page-level metadata
+- `app/HomeClient.tsx` — Interactive homepage content, hero section, FAQ, and structured data
+- `app/components/GlobalHeader.tsx` — Persistent sticky navigation with scroll-aware behavior
+- `app/blog/.../page.tsx` — Blog landing pages for local content and SEO-friendly topics
+- `next.config.ts` — Configures remote image patterns for `images.unsplash.com`
+- `public/` — Static assets used by the homepage and metadata images
+
+## Notes
+
+- `app/layout.tsx` and `app/page.tsx` both configure `metadataBase` for correct Open Graph and canonical URLs.
+- The header behavior is implemented entirely in `app/components/GlobalHeader.tsx` using client-side scroll state.
+- The homepage injects SEO-friendly JSON-LD schema with organization, business, FAQ, and app metadata.
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+- [Next.js Documentation](https://nextjs.org/docs)
+- [App Router](https://nextjs.org/docs/app)
+- [Next.js Image Component](https://nextjs.org/docs/app/api-reference/components/image)
+- [Next.js Metadata](https://nextjs.org/docs/app/api-reference/functions/generate-metadata)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deploy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project can be deployed on Vercel or any hosting platform that supports Next.js.
 
-## Deploy on Vercel
+For Vercel deployment, follow the official guide:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- https://nextjs.org/docs/app/building-your-application/deploying
