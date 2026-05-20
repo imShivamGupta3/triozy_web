@@ -6,6 +6,7 @@ export const post: BlogPost = {
   description: "A complete guide to buying and selling used furniture in Indore: best local markets, online options, inspection checklist, pricing tips, and safe delivery.",
   category: "Guides",
   publishedAt: "2024-03-10",
+  updatedAt: "2026-05-20",
   heroImage: "/Main_SS.png",
   keywords: [
     "used furniture Indore",

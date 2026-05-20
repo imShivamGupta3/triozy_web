@@ -6,6 +6,7 @@ export const costOfLivingInIndore: BlogPost = {
   description: "A practical breakdown of rent, food, transport, internet and student budgets in Indore.",
   category: "Guides",
   publishedAt: "2024-03-10",
+  updatedAt: "2026-05-20",
   heroImage: "/Main_SS.png",
   keywords: [
     "cost of living Indore",

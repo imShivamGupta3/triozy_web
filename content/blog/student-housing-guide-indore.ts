@@ -6,6 +6,7 @@ export const post: BlogPost = {
   description: "A practical student housing guide for Indore: how to choose between PG and flat, budget planning, locality choices, and a move-in checklist.",
   category: "Guides",
   publishedAt: "2024-03-10",
+  updatedAt: "2026-05-20",
   heroImage: "/Main_SS.png",
   keywords: [
     "student housing Indore",

@@ -6,6 +6,7 @@ export const post: BlogPost = {
   description: "A practical locality-by-locality guide to choosing where to live in Indore based on budget, commute, safety, and lifestyle.",
   category: "Guides",
   publishedAt: "2024-03-10",
+  updatedAt: "2026-05-20",
   heroImage: "/Main_SS.png",
   keywords: [
     "best areas to live in Indore",

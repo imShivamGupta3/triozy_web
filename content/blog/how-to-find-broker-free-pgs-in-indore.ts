@@ -6,6 +6,7 @@ export const post: BlogPost = {
   description: "A practical playbook to find broker-free PGs in Indore: where to search, what to verify, pricing, and the questions that prevent move-in surprises.",
   category: "Guides",
   publishedAt: "2024-03-10",
+  updatedAt: "2026-05-20",
   heroImage: "/Main_SS.png",
   keywords: [
     "broker free PG Indore",

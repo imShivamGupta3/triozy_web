@@ -16,6 +16,7 @@ export type BlogPost = {
   description: string;
   category: string;
   publishedAt: string;
+  updatedAt?: string;
   heroImage?: string;
   keywords?: string | string[];
   sections: BlogSection[];

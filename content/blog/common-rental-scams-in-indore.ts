@@ -6,6 +6,7 @@ export const post: BlogPost = {
   description: "A safety-first guide to spotting rental scams in Indore: fake owners, deposit traps, forged agreements, and how to verify listings before paying.",
   category: "Guides",
   publishedAt: "2024-03-10",
+  updatedAt: "2026-05-20",
   heroImage: "/Main_SS.png",
   keywords: [
     "rental scams Indore",

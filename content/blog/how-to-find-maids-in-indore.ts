@@ -6,6 +6,7 @@ export const post: BlogPost = {
   description: "A practical guide to finding a maid in Indore: where to ask, pricing expectations, background checks, and how to set expectations from day one.",
   category: "Guides",
   publishedAt: "2024-03-10",
+  updatedAt: "2026-05-20",
   heroImage: "/Main_SS.png",
   keywords: [
     "maids in Indore",

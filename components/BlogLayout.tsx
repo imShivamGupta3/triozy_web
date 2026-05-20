@@ -5,6 +5,17 @@ import Breadcrumb from './Breadcrumb';
 import Schema from './Schema';
 import GlobalHeader from './GlobalHeader';
 
+function formatDateLabel(dateStr: string) {
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(dateStr);
+  if (!match) return dateStr;
+  const year = match[1];
+  const month = Number(match[2]);
+  const day = Number(match[3]);
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const monthLabel = months[month - 1] ?? match[2];
+  return `${monthLabel} ${day}, ${year}`;
+}
+
 function getSectionId(heading: string) {
   return heading.toLowerCase().trim().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
 }
@@ -60,6 +71,11 @@ export default function BlogLayout({ post }: { post: BlogPost }) {
     Math.ceil(post.sections.flatMap((section) => [...section.content, ...(section.items ?? [])]).join(' ').split(/\s+/).length / 200)
   );
 
+  const metaParts: string[] = [];
+  if (post.publishedAt) metaParts.push(`Published: ${formatDateLabel(post.publishedAt)}`);
+  if (post.updatedAt && post.updatedAt !== post.publishedAt) metaParts.push(`Updated: ${formatDateLabel(post.updatedAt)}`);
+  metaParts.push(`${readingTime} min read`);
+
   return (
     <main className="min-h-screen bg-[#f8fafc] text-slate-900">
       <GlobalHeader />
@@ -76,9 +92,12 @@ export default function BlogLayout({ post }: { post: BlogPost }) {
           <p className="mb-6 max-w-3xl text-lg leading-relaxed text-slate-200">{post.description}</p>
 
           <div className="flex items-center space-x-4 text-sm font-medium">
-            {post.publishedAt && <span>{post.publishedAt}</span>}
-            {post.publishedAt && <span>&bull;</span>}
-            <span>{readingTime} min read</span>
+            {metaParts.map((part, i) => (
+              <React.Fragment key={part}>
+                {i > 0 && <span>&bull;</span>}
+                <span>{part}</span>
+              </React.Fragment>
+            ))}
           </div>
         </div>
       </section>

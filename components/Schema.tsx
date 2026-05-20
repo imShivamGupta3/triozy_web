@@ -4,6 +4,7 @@ type BlogPostingData = {
   title: string;
   description: string;
   publishedAt?: string;
+  updatedAt?: string;
   heroImage?: string;
 };
 
@@ -44,6 +45,7 @@ export default function Schema(props: SchemaProps) {
       "headline": data.title,
       "description": data.description,
       "datePublished": data.publishedAt,
+      "dateModified": data.updatedAt ?? data.publishedAt,
       "image": data.heroImage
         ? [
             data.heroImage.startsWith('http')
