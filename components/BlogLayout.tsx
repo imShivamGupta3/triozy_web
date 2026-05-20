@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { BlogPost, BlogSection } from '../content/blog/types';
-import Breadcrumb from './Breadcrumb';
+import BreadcrumbServer from './BreadcrumbServer';
 import Schema from './Schema';
 import GlobalHeader from './GlobalHeader';
 
@@ -85,7 +85,14 @@ export default function BlogLayout({ post }: { post: BlogPost }) {
       <section className="bg-gradient-to-b from-[#635BFF] to-[#8A78FF] pb-24 pt-32 text-white">
         <div className="mx-auto max-w-5xl px-6">
           <div className="pb-4 text-white/80">
-            <Breadcrumb variant="light" />
+            <BreadcrumbServer
+              variant="light"
+              items={[
+                { label: 'Home', href: '/' },
+                { label: 'Blog', href: '/blog' },
+                { label: post.title, href: `/blog/${post.slug}` },
+              ]}
+            />
           </div>
           <p className="mb-4 text-sm uppercase tracking-[0.3em] text-[#c1d4ff]">{post.category || 'Blog'}</p>
           <h1 className="mb-6 text-4xl font-extrabold md:text-5xl">{post.title}</h1>

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Breadcrumb from './Breadcrumb';
+import BreadcrumbServer from './BreadcrumbServer';
 import CTASection from './CTASection';
 import Schema from './Schema';
 import { CityLanding } from '../content/city/types';
@@ -35,7 +35,13 @@ export default function CityPage({ city, localities }: Props) {
       <header className="bg-gradient-to-b from-[#635BFF] to-[#8A78FF] pb-20 pt-28 text-white">
         <div className="mx-auto max-w-6xl px-6">
           <div className="text-white/80 pb-4">
-            <Breadcrumb variant="light" />
+            <BreadcrumbServer
+              variant="light"
+              items={[
+                { label: 'Home', href: '/' },
+                { label: cityLabel, href: `/${city.slug}` },
+              ]}
+            />
           </div>
           <p className="text-sm uppercase tracking-[0.3em] text-[#c1d4ff] mb-4">{cityLabel}</p>
           <h1 className="text-4xl md:text-6xl font-extrabold mb-6">

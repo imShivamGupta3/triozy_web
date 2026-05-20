@@ -1,37 +1,13 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 const webAppLink = "https://app.triozy.com/";
-const logoUrl = "/triozy_logo.png";
+const logoUrl = "/triozy_logo.svg";
 
 export default function GlobalHeader() {
-  const [isNavVisible, setIsNavVisible] = useState(true);
-
-  useEffect(() => {
-    let lastScrollY = window.scrollY;
-
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY > 50) {
-        setIsNavVisible(currentScrollY < lastScrollY);
-      } else {
-        setIsNavVisible(true);
-      }
-
-      lastScrollY = currentScrollY;
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 bg-[#EAE8FF]/80 backdrop-blur-2xl border-b border-[#635BFF]/15 transition-transform duration-300 ${isNavVisible ? "translate-y-0" : "-translate-y-full"}`}
+      className="fixed top-0 left-0 right-0 z-50 bg-[#EAE8FF]/80 backdrop-blur-2xl border-b border-[#635BFF]/15 transition-transform duration-300 translate-y-0"
     >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 cursor-pointer group">
@@ -40,6 +16,7 @@ export default function GlobalHeader() {
             alt="Triozy App Logo"
             width={40}
             height={40}
+            sizes="40px"
             className="w-10 h-10 rounded-xl shadow-sm object-cover group-hover:shadow-md transition-shadow"
           />
           <span className="text-2xl font-extrabold tracking-tight text-[#635BFF]">Triozy</span>
