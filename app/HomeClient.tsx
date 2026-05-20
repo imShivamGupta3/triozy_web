@@ -571,7 +571,7 @@ export default function TriozyLandingPagePro() {
               </li>
               <li>
                 <Link href="/blog/cost-of-living-in-indore" className="text-slate-600 hover:text-[#635BFF] transition-colors">
-                  Cost of Living in Indore: A Complete Breakdown (2024)
+                  Cost of Living in Indore: A Complete Breakdown (2026)
                 </Link>
               </li>
               <li>
