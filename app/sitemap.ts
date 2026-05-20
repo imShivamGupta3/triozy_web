@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { getAllBlogPosts } from '@/content/blog';
+import { allCities } from '@/content/city';
 import { allLocalities } from '@/content/locality';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -11,6 +12,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: post.updatedAt ? new Date(post.updatedAt) : post.publishedAt ? new Date(post.publishedAt) : currentDate,
     changeFrequency: 'monthly' as const,
     priority: 0.8,
+  }));
+
+  const cityPages = allCities.map((city) => ({
+    url: `${baseUrl}/${city.slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'monthly' as const,
+    priority: 0.75,
   }));
 
   const localityPages = allLocalities.map((locality) => ({
@@ -57,6 +65,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.3,
     },
+    ...cityPages,
     ...blogPages,
     ...localityPages,
   ];

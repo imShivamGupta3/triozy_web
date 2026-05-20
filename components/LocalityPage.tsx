@@ -29,18 +29,31 @@ export default function LocalityPage({ data }: { data: LocalityData }) {
     data.description ||
     `Discover broker-free flats, trusted flatmates, and local services in ${data.title}.`;
 
-  const relatedAreas = allLocalities
-    .filter((loc) => loc.city === data.city && loc.slug !== data.slug)
-    .slice(0, 4);
+  const relatedAreas = (data.relatedAreas && data.relatedAreas.length > 0)
+    ? data.relatedAreas
+        .map((slug) => allLocalities.find((loc) => loc.city === data.city && loc.slug === slug))
+        .filter((x): x is LocalityData => Boolean(x))
+        .slice(0, 4)
+    : allLocalities
+        .filter((loc) => loc.city === data.city && loc.slug !== data.slug)
+        .slice(0, 4);
+
+  const whoShouldLive = (data.whoShouldLive && data.whoShouldLive.length > 0)
+    ? data.whoShouldLive
+    : getWhoShouldLiveHere(data);
+
+  const transportationLines = (data.transportation && data.transportation.length > 0)
+    ? data.transportation
+    : getTransportationNotes(data);
 
   return (
     <main className="min-h-screen bg-[#f8fafc] text-slate-900">
       {data.faq && data.faq.length > 0 && <Schema type="FAQPage" data={data.faq} />}
 
       <header className="bg-gradient-to-b from-[#635BFF] to-[#8A78FF] pb-20 pt-28 text-white">
-        <div className="mx-auto max-w-5xl px-6">
+          <div className="mx-auto max-w-5xl px-6">
           <div className="text-white/80 pb-4">
-            <Breadcrumb />
+            <Breadcrumb variant="light" />
           </div>
           <p className="text-sm uppercase tracking-[0.3em] text-[#c1d4ff] mb-4">{cityLabel}</p>
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4">{data.title}</h1>
@@ -63,8 +76,21 @@ export default function LocalityPage({ data }: { data: LocalityData }) {
         <section aria-label="Key Details" className="grid gap-6 md:grid-cols-3">
           <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
             <h2 className="font-bold text-xl mb-2 text-slate-900">Average Rent</h2>
-            <p className="text-2xl font-extrabold text-[#635BFF]">{data.averageRent}</p>
-            <p className="text-slate-500 text-sm mt-1">Per month estimate</p>
+            <div className="mt-3 space-y-2 text-slate-700">
+              <p className="flex items-baseline justify-between gap-3">
+                <span className="text-sm font-semibold text-slate-600">PG</span>
+                <span className="font-extrabold text-[#635BFF]">{data.averageRent.pg}</span>
+              </p>
+              <p className="flex items-baseline justify-between gap-3">
+                <span className="text-sm font-semibold text-slate-600">Room</span>
+                <span className="font-extrabold text-[#635BFF]">{data.averageRent.room}</span>
+              </p>
+              <p className="flex items-baseline justify-between gap-3">
+                <span className="text-sm font-semibold text-slate-600">Flat</span>
+                <span className="font-extrabold text-[#635BFF]">{data.averageRent.flat}</span>
+              </p>
+            </div>
+            <p className="text-slate-500 text-sm mt-3">Typical monthly ranges</p>
           </article>
 
           <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -85,7 +111,7 @@ export default function LocalityPage({ data }: { data: LocalityData }) {
         <section aria-labelledby="who" className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm scroll-mt-24" id="who">
           <h2 id="who-title" className="text-2xl md:text-3xl font-bold text-slate-900">Who should live here?</h2>
           <ul className="mt-4 list-disc pl-5 text-slate-600 space-y-2">
-            {getWhoShouldLiveHere(data).map((line) => (
+            {whoShouldLive.map((line) => (
               <li key={line}>{line}</li>
             ))}
           </ul>
@@ -94,7 +120,7 @@ export default function LocalityPage({ data }: { data: LocalityData }) {
         <section aria-labelledby="transport" className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm scroll-mt-24" id="transport">
           <h2 id="transport-title" className="text-2xl md:text-3xl font-bold text-slate-900">Transportation</h2>
           <div className="mt-4 space-y-4 leading-relaxed text-slate-600">
-            {getTransportationNotes(data).map((p) => (
+            {transportationLines.map((p) => (
               <p key={p}>{p}</p>
             ))}
           </div>
@@ -118,17 +144,26 @@ export default function LocalityPage({ data }: { data: LocalityData }) {
           <section aria-labelledby="related-areas" className="rounded-3xl border border-slate-200 bg-slate-50 p-8 shadow-sm scroll-mt-24" id="related-areas">
             <h2 id="related-areas-title" className="text-2xl font-bold text-slate-900">Related Areas</h2>
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              {relatedAreas.map((area) => (
+              {relatedAreas.map((area, index) => {
+                const isLast = index === relatedAreas.length - 1;
+                const spanTwoCols = relatedAreas.length % 2 === 1 && isLast;
+                return (
                 <Link
                   key={area.slug}
                   href={`/${area.city}/${area.slug}`}
-                  className="block rounded-2xl border border-slate-200 bg-white p-6 transition hover:border-[#635BFF] hover:shadow-md"
+                  className={`group block rounded-2xl border border-slate-200 bg-white p-6 transition hover:border-[#635BFF] hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#635BFF] focus-visible:ring-offset-2${spanTwoCols ? ' sm:col-span-2' : ''}`}
                 >
                   <h3 className="text-lg font-semibold text-slate-900">{area.title}</h3>
-                  <p className="mt-2 text-sm text-slate-600">Average rent: {area.averageRent}</p>
+                  <p className="mt-2 text-sm text-slate-600">
+                    Avg rent: PG {area.averageRent.pg} <span aria-hidden="true">&middot;</span> Room {area.averageRent.room} <span aria-hidden="true">&middot;</span> Flat {area.averageRent.flat}
+                  </p>
                   {area.description && <p className="mt-3 text-sm text-slate-500">{area.description}</p>}
+                  <div className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#4039A3] group-hover:text-[#635BFF]">
+                    View area <span aria-hidden="true">&rarr;</span>
+                  </div>
                 </Link>
-              ))}
+                );
+              })}
             </div>
           </section>
         )}

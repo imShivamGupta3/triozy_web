@@ -5,9 +5,16 @@ export const vijayNagar: LocalityData = {
   city: "indore",
   title: "Vijay Nagar",
   description: "Vijay Nagar is a premium, well-connected Indore locality popular with working professionals and students who want reliable transport, markets, and modern society living. It is a strong choice if you want a smoother day-to-day routine with easier access to services like tiffins, maids, and deliveries.",
-  averageRent: "Rs 8,000 to Rs 15,000",
+  averageRent: {
+    pg: "₹5k–10k",
+    room: "₹7k–15k",
+    flat: "₹12k–25k"
+  },
   nearbyOffices: ["TCS", "Infosys", "Brilliant Convention Centre"],
-  nearbyColleges: ["Prestige Institute", "IPS Academy"],
+  nearbyColleges: ["Medicaps University", "IPS Academy", "Acropolis Institute"],
+  transportation: ["iBus corridors nearby", "city buses", "cab services", "shared autos/e-rickshaws"],
+  whoShouldLive: ["Students", "IT employees", "Young professionals", "Bachelors"],
+  relatedAreas: ["scheme-54", "palasia", "super-corridor"],
   faq: [
     {
       question: "Is Vijay Nagar good for working professionals?",
@@ -19,4 +26,3 @@ export const vijayNagar: LocalityData = {
     }
   ]
 };
-

@@ -5,9 +5,21 @@ import { usePathname } from 'next/navigation';
 import Schema from './Schema';
 import React from 'react';
 
-export default function Breadcrumb() {
+type BreadcrumbProps = {
+  variant?: 'default' | 'light';
+};
+
+export default function Breadcrumb({ variant = 'default' }: BreadcrumbProps) {
   const pathname = usePathname();
   const pathnames = pathname.split('/').filter((x) => x);
+
+  const navTextClass = variant === 'light' ? 'text-white/80' : 'text-slate-500';
+  const linkClass =
+    variant === 'light'
+      ? 'hover:text-white transition-colors'
+      : 'hover:text-[#635BFF] transition-colors';
+  const dividerClass = variant === 'light' ? 'text-white/60' : 'text-slate-400';
+  const currentClass = variant === 'light' ? 'text-white font-semibold' : 'text-slate-800 font-medium';
 
   const breadcrumbData = [
     { name: 'Home', url: 'https://triozy.com/' },
@@ -24,10 +36,10 @@ export default function Breadcrumb() {
   return (
     <>
       <Schema type="BreadcrumbList" data={breadcrumbData} />
-      <nav aria-label="breadcrumb" className="py-4 text-sm text-slate-500">
+      <nav aria-label="breadcrumb" className={`py-4 text-sm ${navTextClass}`}>
         <ol className="flex space-x-2">
           <li>
-            <Link href="/" className="hover:text-[#635BFF] transition-colors">
+            <Link href="/" className={linkClass}>
               Home
             </Link>
           </li>
@@ -41,13 +53,13 @@ export default function Breadcrumb() {
 
             return (
               <li key={href} className="flex space-x-2">
-                <span>&gt;</span>
+                <span className={dividerClass}>&gt;</span>
                 {isLast ? (
-                  <span className="text-slate-800 font-medium" aria-current="page">
+                  <span className={currentClass} aria-current="page">
                     {label}
                   </span>
                 ) : (
-                  <Link href={href} className="hover:text-[#635BFF] transition-colors">
+                  <Link href={href} className={linkClass}>
                     {label}
                   </Link>
                 )}
