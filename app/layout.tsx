@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: "Triozy App",
     images: [
       {
-        url: "/Banner.png", // This will show up beautifully when you paste your link in WhatsApp/LinkedIn
+        url: "/Banner.webp", // This will show up beautifully when you paste your link in WhatsApp/LinkedIn
         width: 1200,
         height: 630,
         alt: "Triozy App Ecosystem for Housing and Marketplace",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Triozy: Move Smarter, Settle Faster",
     description: "Find verified rooms, PGs, trusted flatmates & daily essentials in one app.",
-    images: ["/Banner.png"],
+    images: ["/Banner.webp"],
   },
 };
 

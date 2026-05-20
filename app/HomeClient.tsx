@@ -20,14 +20,14 @@ export default function TriozyLandingPagePro() {
   // Local Image Paths 
   const logoUrl = "/triozy_logo.png";
   const heroImage = "/Main_SS.webp";
-  const bannerImage = "/Banner.png";
+  const bannerImage = "/Banner.webp";
   const galleryImages = [
-    "/SS_2.png",
-    "/SS_3.png",
-    "/SS_4.png",
-    "/SS_5.png",
-    "/SS_6.png",
-    "/SS_7.png",
+    "/SS_2.webp",
+    "/SS_3.webp",
+    "/SS_4.webp",
+    "/SS_5.webp",
+    "/SS_6.webp",
+    "/SS_7.webp",
   ];
 
   const faqs = [
