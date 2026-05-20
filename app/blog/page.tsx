@@ -1,6 +1,7 @@
 import { getAllBlogPosts } from '../../content/blog';
+import { allLocalities } from '../../content/locality';
 import Link from 'next/link';
-import { Search } from 'lucide-react';
+import ContentSearchBar, { ContentSearchItem } from '../../components/ContentSearchBar';
 
 export const metadata = {
   title: 'Blog | Triozy - Guides and Insights',
@@ -9,6 +10,41 @@ export const metadata = {
 
 export default function BlogIndex() {
   const posts = getAllBlogPosts();
+
+  const searchItems: ContentSearchItem[] = [
+    ...posts.map((post) => {
+      const keywordList = Array.isArray(post.keywords)
+        ? post.keywords
+        : typeof post.keywords === 'string'
+          ? [post.keywords]
+          : [];
+
+      return {
+        type: 'blog' as const,
+        title: post.title,
+        href: `/blog/${post.slug}`,
+        keywords: [
+          post.category,
+          ...keywordList,
+          ...(post.faq?.map((f) => f.question) ?? []),
+        ],
+      };
+    }),
+    ...allLocalities.map((locality) => ({
+      type: 'locality' as const,
+      title: locality.title,
+      href: `/${locality.city}/${locality.slug}`,
+      keywords: [
+        locality.city,
+        ...locality.nearbyColleges,
+        ...locality.nearbyOffices,
+        ...(locality.whoShouldLive ?? []),
+        ...(locality.transportation ?? []),
+        ...(locality.description ? [locality.description] : []),
+        ...(locality.faq?.map((f) => f.question) ?? []),
+      ],
+    })),
+  ];
 
   return (
     <main className="min-h-screen bg-[#f8fafc] text-slate-900 pb-16">
@@ -20,15 +56,8 @@ export default function BlogIndex() {
             Read our latest articles for students, young professionals, and families moving to a new city.
           </p>
 
-          <div className="max-w-2xl mx-auto relative">
-            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-              <Search className="h-5 w-5 text-white/60" />
-            </div>
-            <input
-              type="search"
-              placeholder="Search articles, neighborhoods, or FAQs"
-              className="w-full rounded-full border border-white/20 bg-white/10 pl-12 pr-6 py-4 text-white placeholder:text-slate-200 focus:outline-none focus:ring-2 focus:ring-white/60"
-            />
+          <div className="max-w-2xl mx-auto">
+            <ContentSearchBar items={searchItems} />
           </div>
         </div>
       </section>
