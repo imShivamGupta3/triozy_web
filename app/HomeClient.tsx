@@ -169,6 +169,7 @@ export default function TriozyLandingPagePro() {
                   alt="Download Triozy App on Google Play" 
                   width={150}
                   height={45}
+                  sizes="150px"
                   className="h-20 sm:h-24 w-auto hover:scale-[1.02] transition-transform drop-shadow-md"
                 />
               </Link>
@@ -176,9 +177,9 @@ export default function TriozyLandingPagePro() {
 
             <div className="flex items-center gap-4 text-sm text-slate-600 font-medium">
               <div className="flex -space-x-3">
-                <Image src={galleryImages[0]} alt="Triozy user profile" width={40} height={40} className="w-10 h-10 rounded-full border-2 border-white object-cover bg-slate-200" />
-                <Image src={galleryImages[1]} alt="Triozy verified user" width={40} height={40} className="w-10 h-10 rounded-full border-2 border-white object-cover bg-slate-300" />
-                <Image src={galleryImages[2]} alt="Triozy community member" width={40} height={40} className="w-10 h-10 rounded-full border-2 border-white object-cover bg-slate-400" />
+                <Image src={galleryImages[0]} alt="Triozy user profile" width={40} height={40} sizes="40px" className="w-10 h-10 rounded-full border-2 border-white object-cover bg-slate-200" />
+                <Image src={galleryImages[1]} alt="Triozy verified user" width={40} height={40} sizes="40px" className="w-10 h-10 rounded-full border-2 border-white object-cover bg-slate-300" />
+                <Image src={galleryImages[2]} alt="Triozy community member" width={40} height={40} sizes="40px" className="w-10 h-10 rounded-full border-2 border-white object-cover bg-slate-400" />
               </div>
               <p>Join thousands streamlining their next move</p>
             </div>
@@ -254,6 +255,10 @@ export default function TriozyLandingPagePro() {
               alt="Triozy ecosystem showing housing, flatmates and marketplace features" 
               width={1000}
               height={500}
+              sizes="(max-width: 768px) 92vw, (max-width: 1280px) 80vw, 1000px"
+              quality={80}
+              priority
+              fetchPriority="high"
               className="w-full h-auto object-cover"
             />
           </div>
@@ -384,13 +389,13 @@ export default function TriozyLandingPagePro() {
           
           <div className="relative h-[650px] hidden md:block perspective-1000">
             <div className="absolute top-0 right-0 w-[260px] z-10 rotate-6 transition-transform hover:scale-105">
-              <Image src={galleryImages[0]} width={260} height={500} className="w-full h-auto rounded-[2.5rem] border-[8px] border-white ring-1 ring-slate-800 shadow-2xl" alt="Triozy room rental search interface" />
+              <Image src={galleryImages[0]} width={260} height={500} sizes="260px" className="w-full h-auto rounded-[2.5rem] border-[8px] border-white ring-1 ring-slate-800 shadow-2xl" alt="Triozy room rental search interface" />
             </div>
             <div className="absolute top-20 left-0 w-[260px] z-20 -rotate-3 transition-transform hover:scale-105">
-               <Image src={galleryImages[1]} width={260} height={500} className="w-full h-auto rounded-[2.5rem] border-[8px] border-white ring-1 ring-slate-800 shadow-2xl" alt="Triozy secure flatmate chat screen" />
+               <Image src={galleryImages[1]} width={260} height={500} sizes="260px" className="w-full h-auto rounded-[2.5rem] border-[8px] border-white ring-1 ring-slate-800 shadow-2xl" alt="Triozy secure flatmate chat screen" />
             </div>
             <div className="absolute bottom-[-60px] right-30 w-[260px] z-30 rotate-2 transition-transform hover:scale-105">
-               <Image src={galleryImages[2]} width={260} height={500} className="w-full h-auto rounded-[2.5rem] border-[8px] border-white ring-1 ring-slate-800 shadow-2xl" alt="Triozy local marketplace for buying essentials" />
+               <Image src={galleryImages[2]} width={260} height={500} sizes="260px" className="w-full h-auto rounded-[2.5rem] border-[8px] border-white ring-1 ring-slate-800 shadow-2xl" alt="Triozy local marketplace for buying essentials" />
             </div>
           </div>
         </div>
@@ -415,11 +420,12 @@ export default function TriozyLandingPagePro() {
                   alt={`Triozy app screenshot highlighting app feature ${index + 1}`} 
                   width={300}
                   height={600}
+                  sizes="(max-width: 768px) 260px, 300px"
                   className="w-full h-auto object-cover"
-                />
-              </div>
-            </div>
-          ))}
+                /> 
+              </div> 
+            </div> 
+          ))} 
         </div>
       </section>
 
@@ -605,6 +611,7 @@ export default function TriozyLandingPagePro() {
                 alt="Get it on Google Play" 
                 width={150}
                 height={45}
+                sizes="150px"
                 className="h-20 sm:h-24 w-auto hover:scale-[1.02] transition-transform drop-shadow-2xl"
               />
             </a>
