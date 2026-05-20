@@ -1,41 +1,63 @@
 import { MetadataRoute } from 'next';
-import { getAllBlogPosts } from '../content/blog';
+import { getAllBlogPosts } from '@/content/blog';
+import { allLocalities } from '@/content/locality';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://triozy.com';
+  const currentDate = new Date();
 
-  const blogPosts = getAllBlogPosts().map((post) => ({
+  const blogPages = getAllBlogPosts().map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: post.publishedAt ? new Date(post.publishedAt) : new Date(),
+    lastModified: post.publishedAt ? new Date(post.publishedAt) : currentDate,
     changeFrequency: 'monthly' as const,
     priority: 0.8,
+  }));
+
+  const localityPages = allLocalities.map((locality) => ({
+    url: `${baseUrl}/${locality.city}/${locality.slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
   }));
 
   return [
     {
       url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
       priority: 1,
     },
     {
       url: `${baseUrl}/blog`,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/about`,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: 'yearly',
-      priority: 0.7,
+      priority: 0.5,
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: 'yearly',
-      priority: 0.7,
+      priority: 0.5,
     },
-    ...blogPosts,
+    {
+      url: `${baseUrl}/privacy`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/terms`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    ...blogPages,
+    ...localityPages,
   ];
 }
