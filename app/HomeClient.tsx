@@ -19,7 +19,7 @@ export default function TriozyLandingPagePro() {
   
   // Local Image Paths 
   const logoUrl = "/triozy_logo.png";
-  const heroImage = "/Main_SS.png";
+  const heroImage = "/Main_SS.webp";
   const bannerImage = "/Banner.png";
   const galleryImages = [
     "/SS_2.png",
@@ -206,6 +206,9 @@ export default function TriozyLandingPagePro() {
                 width={320}
                 height={700}
                 priority
+                fetchPriority="high"
+                sizes="(max-width: 768px) 80vw, 320px"
+                quality={80}
                 className="w-full h-auto rounded-[2.5rem] border-[8px] border-white shadow-[0_30px_60px_rgba(99,91,255,0.2)] ring-1 ring-slate-100"
                 decoding="async" 
               />
