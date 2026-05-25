@@ -15,17 +15,20 @@ export default function TermsOfService() {
   return (
     <div className="min-h-screen bg-[#f8fafc] text-slate-900 font-sans selection:bg-[#E5E0FF] selection:text-[#635BFF]">
       
-      {/* 1. STICKY NAVBAR */}
+      {/* 1. STICKY NAVBAR (FIXED OVERLAP) */}
       <nav className="fixed w-full top-0 z-50 bg-[#EAE8FF]/90 backdrop-blur-xl border-b border-[#635BFF]/15 transition-all duration-300">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-6">
-            <Link href="/" className="group flex items-center gap-2 text-slate-600 hover:text-[#635BFF] transition-colors font-bold text-sm bg-white/50 px-3 py-1.5 rounded-full border border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-2">
+          
+          <div className="flex items-center gap-2 sm:gap-6 shrink-0">
+            <Link href="/" className="group flex items-center gap-1 sm:gap-2 text-slate-600 hover:text-[#635BFF] transition-colors font-bold text-sm bg-white/50 px-2 sm:px-3 py-1.5 rounded-full border border-slate-200">
               <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
-              <span>Back</span>
+              {/* Hide "Back" text on mobile to save space, show on sm screens and up */}
+              <span className="hidden sm:inline">Back</span>
             </Link>
-            <div className="flex items-center gap-3">
-              <Image src={logoUrl} alt="Triozy Logo" width={40} height={40} className="w-10 h-10 rounded-xl shadow-sm object-cover" />
-              <span className="text-2xl font-extrabold tracking-tight text-[#635BFF]">Triozy</span>
+            
+            <div className="flex items-center gap-2 sm:gap-3">
+              <Image src={logoUrl} alt="Triozy Logo" width={40} height={40} className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl shadow-sm object-cover" />
+              <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-[#635BFF]">Triozy</span>
             </div>
           </div>
           
@@ -33,7 +36,7 @@ export default function TermsOfService() {
             href="https://app.triozy.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-[#635BFF] text-white px-6 py-2.5 rounded-full font-semibold hover:bg-[#524be0] transition-all hover:shadow-lg hover:-translate-y-0.5"
+            className="flex items-center gap-2 bg-[#635BFF] text-white px-4 py-2 sm:px-6 sm:py-2.5 rounded-full text-sm sm:text-base font-semibold hover:bg-[#524be0] transition-all hover:shadow-lg hover:-translate-y-0.5 whitespace-nowrap shrink-0"
           >
             Try on Web
           </a>
